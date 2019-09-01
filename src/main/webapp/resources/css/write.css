@@ -1,0 +1,26 @@
+.jumbotron{
+	border:solid 1px #c1c1c1;
+	background-color:#fff;
+}
+.writeForm{
+	margin-top:30px;
+}
+#content{
+	height:200px;
+}
+#addFile{
+	position:absolute;
+	width:1px;
+	height:1px;
+}
+label[for="addFile"]{
+	cursor:pointer;
+}
+#thumbnailImg{
+	margin-top:15px;
+	width:200px;
+	height:auto;
+}
+.register_area{
+	text-align:right;
+}

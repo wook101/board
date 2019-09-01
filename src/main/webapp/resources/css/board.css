@@ -1,0 +1,66 @@
+table{
+	border:solid 1px #c7c7c7;
+	background-color: #fff;
+	font-size:12px;
+}
+.table td, .table th{
+	padding:8px;
+}
+table > thead{
+	background-color: #333;
+	color:#fff;
+}
+tbody tr{
+	font-family:"맑은고딕";
+	cursor:pointer;
+}
+tbody tr{
+	border-top:solid #cecece 2px;
+}
+tbody > tr:hover{
+	background-color:rgb(239, 239, 239);
+}
+
+.writeArea{
+	text-align:right;
+}
+
+.pagination a.active {
+  background-color: #4CAF50;
+  color: white;
+  border-radius: 5px;
+}
+
+.pagination a:hover:not(.active) {
+  color:black;
+  background-color: #ddd;
+  border-radius: 5px;
+}
+.pagination a {
+  color: black;
+  padding: 8px 16px;
+  text-decoration: none;
+}
+.th_id{
+	min-width:42px;
+}
+.th_writer{
+	min-width:53px;
+}
+.th_date{
+	min-width:53px;
+}
+.th_views{
+	min-width:54px;
+}
+@media screen and (max-width:414px){
+	.th_writer{
+		display:none;
+	}
+	.th_date{
+		display:none;
+	}
+	
+}
+
+

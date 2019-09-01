@@ -1,0 +1,100 @@
+body{
+	background-color:#eaeaea;
+}
+
+.home{
+	padding:2px 6px;
+	width:60px;
+	height:50px;
+	cursor:pointer;
+}
+.navbar{
+	padding:0;
+	background-color:#333;
+	border-top:solid 3px #4CAF50;
+}
+.navbar .nav-item:hover,.dropdown button:hover{
+	background-color:#4CAF50;
+}
+.navbar .col-md-10{
+	padding:0 15px;
+}
+.nav-item {
+	float:left;
+	padding:0 10px;
+}
+.nav-link{
+	padding:0;
+	height:50px;
+	line-height:50px;
+	font-size:18px;
+	font-family:"고딕";
+	font-weight:bold;
+	color:#fff;
+}
+.nav-link:hover{
+	color:#fff;
+}
+.navbar-nav{
+	display:block;
+	padding:0;
+	
+}
+
+.dropdown_area{
+	float:right;
+	padding:0;
+	height:50px;
+	text-align:right;
+}
+.dropdown{
+	width:160px;
+	
+}
+.dropdown button{
+	color:#fff;
+	font-size:18px;
+	font-family:"고딕";
+	font-weight:bold;
+	margin-top:5px;
+}
+.dropdown-menu{
+	margin-top:5px;
+}
+
+.navbar-nav .dropdown-menu {
+    position: absolute;
+    float: right;
+}
+
+.btn.focus, .btn:focus{
+	box-shadow:none;
+}
+.btn:hover{
+	color:#fff;
+}
+.dropdown-item:hover{
+	color:#fff;
+	background-color:#4CAF50;
+	cursor:pointer;
+}
+
+.tab_active {
+  background-color: #4CAF50;
+}
+.container{
+	margin-top:25px;
+	padding:0;
+}
+
+@media screen and (max-width: 414px){
+	.dropdown{
+		width:85px;
+	}
+	.dropdown-menu{
+		min-width:100px;
+	}
+	.dropdown-item{
+		padding:.25rem 1rem;
+	}
+}

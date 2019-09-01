@@ -1,0 +1,33 @@
+.jumbotron{
+	background-color:#fff;
+}
+.joinForm{
+	margin-top:20px;
+}
+.form-gruop{
+	margin-top:5px;
+}
+.btn-success{
+	margin-top:15px;
+	font-size:20px;
+}
+.validation_success{
+	color:#4CAF50;
+}
+.validation_fail{
+	color:red;
+}
+@media screen and (max-width:414px){
+	.jumbotron h2{
+		font-size:22px;
+	}
+	.form-gruop label{
+		font-size:15px;
+	}
+	.form-control{
+		font-size:12px;
+	}
+	.form-gruop div{
+		font-size:12px;
+	}
+}
