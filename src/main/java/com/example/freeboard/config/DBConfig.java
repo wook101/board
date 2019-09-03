@@ -24,7 +24,7 @@ public class DBConfig implements TransactionManagementConfigurer{
 	private String url = "jdbc:mysql://localhost:3306/freeboard_db?useUnicode=true&characterEncoding=utf8";
 	private String username = "connectuser2";
 	private String password = "connect123!@#";
-
+	
 	//db연결은 위한 dataSource 
 	@Bean
 	public DataSource dataSource() {

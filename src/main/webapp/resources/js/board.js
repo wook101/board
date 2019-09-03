@@ -9,13 +9,13 @@ document.addEventListener("DOMContentLoaded",function(){
 function loginStateCheck(){
 	$('#writeBtn').click(function(){
 		$.ajax({
-			url:'/loginStateCheck',
+			url:'/FreeBoard/loginStateCheck',
 			method:'post',
 			dataType:'text',
 			success: function(data){
 				var check = (data ==='true');
 				if(check){						//로그인 상태
-					location.href='/write';
+					location.href='write';
 				}
 				else{
 					alert('로그인을 하지 않았습니다.');
@@ -26,9 +26,9 @@ function loginStateCheck(){
 }
 //pagination클릭시 배경색 초록
 function paginationCss(){
-	var path = location.pathname + location.search;
-	if(path==location.pathname){
-		path = "/board?start=0";
+	var path = "board"+location.search;
+	if(path=="board"){
+		path="board?start=0";
 	}
 	$('a[href="'+path+'"]').addClass('active');
 }

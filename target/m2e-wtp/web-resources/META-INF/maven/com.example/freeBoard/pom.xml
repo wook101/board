@@ -3,10 +3,10 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.example</groupId>
-	<artifactId>freeBoard</artifactId>
+	<artifactId>FreeBoard</artifactId>
 	<packaging>war</packaging>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>freeBoard Maven Webapp</name>
+	<name>FreeBoard Maven Webapp</name>
 	<url>http://maven.apache.org</url>
 
 	<properties>
@@ -132,7 +132,7 @@
 		</dependency>
 	</dependencies>
 	<build>
-		<finalName>freeBoard</finalName>
+		<finalName>FreeBoard</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>

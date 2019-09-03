@@ -11,7 +11,7 @@
 			<div class="col-md-10">
 				<div class="jumbotron">
 					<h2>회원가입</h2>
-					<form class="joinForm" method="post" action="/joinForm">
+					<form class="joinForm" method="post" action="joinForm">
 						<div class="form-gruop">
 							<label for="userID">아이디 : </label>
 							<input type="text" class="form-control" id="userID" name="userID">

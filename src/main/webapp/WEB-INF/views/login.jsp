@@ -6,10 +6,10 @@
 <layout:extends name="base">
 	<layout:put block="css">
 		<link rel="stylesheet"
-			href="<c:url value="/resources/css/login.css"></c:url>">
+			href="<c:url value="resources/css/login.css"></c:url>">
 	</layout:put>
 	<layout:put block="js">
-		<script src="<c:url value="/resources/js/login.js"></c:url>"></script>
+		<script src="<c:url value="resources/js/login.js"></c:url>"></script>
 	</layout:put>
 	<layout:put block="access_active">tab_active</layout:put>
 	<layout:put block="contents">
@@ -19,7 +19,7 @@
 			<div class="col-md-10">
 				<div class="jumbotron text-center">
 					<h2>로그인</h2>
-					<form class="loginForm" method="post" action="/loginForm">
+					<form class="loginForm" method="post" action="loginForm">
 						<div class="form-group">
 							<input type="text" class="form-control" placeholder="아이디"
 								name="userID" id="userID">

@@ -20,7 +20,7 @@
 				</thead>
 				<tbody>
 					<c:forEach items="${boardList }" var="list">
-						<tr onclick="location.href='/detail?id=${list.id }'">
+						<tr onclick="location.href='detail?id=${list.id }'">
 							<td class="th_id">${list.id }</td>
 							<td>${list.title }</td>
 							<td class="th_writer">${list.nickName }</td>
@@ -37,13 +37,13 @@
 	
 			<ul class="pagination pagination-sm justify-content-center ">
 				<c:if test="${prePageStart > 0 }">
-					<li class="page-item"><a class="page-link" href="/board?start=${prePageStart }">&laquo;</a></li>
+					<li class="page-item"><a class="page-link" href="board?start=${prePageStart }">&laquo;</a></li>
 				</c:if>
 				<c:forEach items="${pageList}" var="pageIndex" varStatus="status">
-					<li class="page-item"><a class="page-link" href="/board?start=${(pageIndex-1)*listCount }">${pageIndex }</a></li>
+					<li class="page-item"><a class="page-link" href="board?start=${(pageIndex-1)*listCount }">${pageIndex }</a></li>
 				</c:forEach>
 				<c:if test="${nextPageArrow}">				
-					<li class="page-item"><a class="page-link" href="/board?start=${nextPageStart }">&raquo;</a></li>
+					<li class="page-item"><a class="page-link" href="board?start=${nextPageStart }">&raquo;</a></li>
 				</c:if>
 			</ul>
 	</layout:put>

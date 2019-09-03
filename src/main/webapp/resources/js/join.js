@@ -74,7 +74,7 @@ function ajaxSendVaidation(type){
 	var formVal = $(`#${type}`).val();
 	var koreanText = korean_Text(type);
 	$.ajax({
-		url:'/formValidation',
+		url:'/FreeBoard/formValidation',
 		method:'post',
 		contentType:'application/json',
 		data:JSON.stringify({type:type,

@@ -25,7 +25,7 @@ function registerBtn(){
 //로그인 상태 확인
 function loginStateCheck(){
 	$.ajax({
-		url:'/loginStateCheck',
+		url:'/FreeBoard/loginStateCheck',
 		method:'post',
 		dataType:'text',
 		success: function(data){
@@ -47,6 +47,11 @@ function thumbnailAdd(){
 		var imageType = image.type;
 		if(!validation(imageType)){
 			alert('gif, jpeg, png 형식만 첨부가능합니다.');
+			$(this).val('');
+			return;
+		}
+		if(image.size > 5242880){	//파일용량 최대 5MB
+			alert('파일 이미지는 5MB이내로 등록 가능합니다.');
 			$(this).val('');
 			return;
 		}
