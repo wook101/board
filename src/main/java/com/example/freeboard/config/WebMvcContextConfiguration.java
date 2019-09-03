@@ -22,6 +22,7 @@ public class WebMvcContextConfiguration extends WebMvcConfigurerAdapter {
         registry.addResourceHandler("/css/**").addResourceLocations("/resources/css/").setCachePeriod(31556926);
         registry.addResourceHandler("/img/**").addResourceLocations("/resources/img/").setCachePeriod(31556926);
         registry.addResourceHandler("/js/**").addResourceLocations("/resources/js/").setCachePeriod(31556926);
+        System.out.println("실행~~");
     }
 	
 	//mapping이 없는 url이 들어왔을때 처리
@@ -44,12 +45,12 @@ public class WebMvcContextConfiguration extends WebMvcConfigurerAdapter {
         resolver.setSuffix(".jsp");
         return resolver;
     }
-    //multipart요청이 올경우 파일업로드 처리 파일크기는 10MB로 설정
-
+    
+    //multipart요청이 올경우 파일업로드 처리 파일크기는 최대5MB로 설정
     @Bean
     public MultipartResolver multipartResolver() {
         org.springframework.web.multipart.commons.CommonsMultipartResolver multipartResolver = new org.springframework.web.multipart.commons.CommonsMultipartResolver();
-        multipartResolver.setMaxUploadSize(10485760); // 1024 * 1024 * 10
+        multipartResolver.setMaxUploadSize(5242880); // 1024 * 1024 * 5
         return multipartResolver;
     }
     

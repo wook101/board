@@ -3,8 +3,8 @@
 <%@ taglib prefix="layout" uri="http://kwonnam.pe.kr/jsp/template-inheritance"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <layout:extends name="base">
-	<layout:put block="js"><script src="<c:url value="/resources/js/detail.js"></c:url>"></script></layout:put>
-	<layout:put block="css"><link rel="stylesheet" href="<c:url value="/resources/css/detail.css"></c:url>"></layout:put>
+	<layout:put block="js"><script src="<c:url value="resources/js/detail.js"></c:url>"></script></layout:put>
+	<layout:put block="css"><link rel="stylesheet" href="<c:url value="resources/css/detail.css"></c:url>"></layout:put>
 	<layout:put block="board_active">tab_active</layout:put>
 	<layout:put block="contents">
 		<div class="jumbotron">
@@ -27,11 +27,11 @@
 					<button class="btn btn-secondary btn-sm" id="updateBtn" value="${detailInfo.id }">수정</button>
 					<button class="btn btn-secondary btn-sm" id="deleteBtn" value="${detailInfo.id }">삭제</button>
 				</c:if>
-				<a class="btn btn-dark btn-sm" id="list"  href="/board">목록보기</a>
+				<a class="btn btn-dark btn-sm" id="list"  href="board">목록보기</a>
 			</div>
 			<div class="content_area">
 				<c:if test="${null ne detailInfo.file_hashCode}">
-					<img id="imgTag" src="/imgDownload?id=${detailInfo.id }" data-hashCode="${detailInfo.file_hashCode}">
+					<img id="imgTag" src="imgDownload?id=${detailInfo.id }" data-hashCode="${detailInfo.file_hashCode}">
 				</c:if>
 				<div class="content_text">${detailInfo.content }</div>
 			</div>
