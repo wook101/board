@@ -1,5 +1,7 @@
 package com.example.freeboard.serviceimpl;
 
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -11,6 +13,8 @@ import java.util.regex.Pattern;
 
 import javax.servlet.http.HttpServletResponse;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -26,6 +30,7 @@ import com.example.freeboard.service.BoardService;
 
 @Service
 public class BoardServiceImpl implements BoardService{
+	private Logger logger = LoggerFactory.getLogger(this.getClass());
 	
 	@Autowired
 	BoardDao boardDao;
@@ -82,15 +87,18 @@ public class BoardServiceImpl implements BoardService{
 		Integer hashCode = file.hashCode();
 		String path = filePath+hashCode+extension;
 		try(FileOutputStream fos = new FileOutputStream(path);
-				InputStream is =  file.getInputStream();
+			 BufferedOutputStream bos =new BufferedOutputStream(fos);
+			 InputStream is =  file.getInputStream();
+			 BufferedInputStream bis =new BufferedInputStream(is);
+
 				) {		
 			 	int readCount = 0;
 			 	byte[] buffer = new byte[1024];
-			 	while((readCount = is.read(buffer)) != -1){
-			 		fos.write(buffer,0,readCount);
+			 	while((readCount = bis.read(buffer)) != -1){
+			 		bos.write(buffer,0,readCount);
 			 	}
 		}catch(Exception e) {
-			System.out.println("file Save Error");
+			e.printStackTrace();
 		}
 		return hashCode;
 	}
@@ -108,19 +116,21 @@ public class BoardServiceImpl implements BoardService{
 		response.setHeader("Content-Transfer-Encoding", "binary");
 		response.setHeader("Pragma", "no-cache;");
 		response.setHeader("Expires", "-1;");
-
+		
 		try (
-				FileInputStream fis = new FileInputStream(path); 
+				FileInputStream fis = new FileInputStream(path);
+				BufferedInputStream bis = new BufferedInputStream(fis);
 				OutputStream out = response.getOutputStream();
+				BufferedOutputStream bos =new BufferedOutputStream(out);
 			)
 		{
 			int readCount = 0;
 			byte[] buffer = new byte[1024];
-			while ((readCount = fis.read(buffer)) != -1) {
-				out.write(buffer, 0, readCount);
+			while ((readCount = bis.read(buffer)) != -1) {
+				bos.write(buffer, 0, readCount);
 			}
 		} catch (Exception e) {
-			throw new RuntimeException("file Save Error");
+			logger.debug("파일 다운로드 error");
 		}
 
 	}
