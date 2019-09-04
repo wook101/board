@@ -18,9 +18,15 @@ label[for="addFile"]{
 }
 #thumbnailImg{
 	margin-top:15px;
-	width:200px;
+	width:300px;
 	height:auto;
 }
 .register_area{
 	text-align:right;
+}
+@media (max-width:414px){
+	#thumbnailImg{
+		width:250px;
+		height:auto;
+	}
 }

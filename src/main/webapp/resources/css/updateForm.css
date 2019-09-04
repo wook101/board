@@ -29,11 +29,18 @@ label[for="addFile"]{
 	cursor:pointer;	
 }
 #thumbnailImg{
-	width:250px;
+	width:300px;
 	height:auto;
 }
 
 .register_area{
 	padding:20px 0 0 0;
 	text-align:right;
+}
+
+@media (max-width:414px){
+	#thumbnailImg{
+		width:250px;
+		height:auto;
+	}
 }
