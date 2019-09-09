@@ -30,7 +30,7 @@
 								</button>
 								<div class="dropdown-menu">
 									<c:choose>
-										<c:when test="${sessionScope.userID eq null }">
+										<c:when test="${sessionScope.user_id eq null }">
 											<a class="dropdown-item" href="/FreeBoard/login">로그인</a>
 										</c:when>
 										<c:otherwise>

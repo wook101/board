@@ -22,6 +22,7 @@ import com.example.freeboard.dto.DetailInfoVo;
 import com.example.freeboard.dto.FileInfoVo;
 import com.example.freeboard.dto.JoinformVo;
 import com.example.freeboard.dto.ListInfoVo;
+import com.example.freeboard.dto.ReplyListInfoVo;
 import com.example.freeboard.dto.WriteFormVo;
 
 import static com.example.freeboard.dao.BoardDaoSqls.*;
@@ -32,7 +33,7 @@ public class BoardDaoImpl implements BoardDao {
 	private RowMapper<ListInfoVo> listInfoRowMapper = BeanPropertyRowMapper.newInstance(ListInfoVo.class);
 	private RowMapper<DetailInfoVo> detailInfoRowMapper = BeanPropertyRowMapper.newInstance(DetailInfoVo.class);
 	private RowMapper<FileInfoVo> fileInfoRowMapper = BeanPropertyRowMapper.newInstance(FileInfoVo.class);
-	
+	private RowMapper<ReplyListInfoVo> replyInfoRowMapper = BeanPropertyRowMapper.newInstance(ReplyListInfoVo.class);
 	public BoardDaoImpl(DataSource datasource) {
 		this.jdbc = new NamedParameterJdbcTemplate(datasource);
 	}
@@ -73,8 +74,9 @@ public class BoardDaoImpl implements BoardDao {
 
 	//이미지 파일 정보 삽입
 	@Override
-	public int fileInfoInsert(MultipartFile file) {
+	public int fileInfoInsert(int board_id, MultipartFile file) {
 		Map<String,Object> param = new HashMap<>();
+		param.put("board_id", board_id);
 		param.put("originalFileName", file.getOriginalFilename());
 		param.put("contentType", file.getContentType());
 		param.put("size",file.getSize());
@@ -83,9 +85,9 @@ public class BoardDaoImpl implements BoardDao {
 	}
 	//글쓰기 폼 정보 삽입
 	@Override
-	public int writeFormInsert(String nickName, WriteFormVo writeFormVo, int views,Integer hashCode) {
+	public int writeFormInsert(int user_id, WriteFormVo writeFormVo, int views, Integer hashCode) {
 		Map<String, Object> param = new HashMap<>();
-		param.put("nickName", nickName);
+		param.put("user_id", user_id);
 		param.put("title", writeFormVo.getTitle());
 		param.put("content", writeFormVo.getContent());
 		param.put("create_date", new Date());
@@ -94,14 +96,23 @@ public class BoardDaoImpl implements BoardDao {
 		return jdbc.update(INSERT_WRITEFORM, param);
 	}
 	
-	//닉네임 가져오기
+	//user테이블의 id
 	@Override
-	public String getNickName(String userID) {
+	public int getUserTableId(String userID) {
 		Map<String,String> param = Collections.singletonMap("userID", userID);
 		try {
-			return jdbc.queryForObject(SELELCT_NICKNAME_BYID, param, String.class);
+			return jdbc.queryForObject(SELECT_ID_BY_USERID, param, int.class);
 		}catch(EmptyResultDataAccessException e) {
-			return null;
+			return 0;
+		}
+	}
+	//board 테이블 마지막 id																							
+	@Override
+	public int getBoardLastId() {
+		try {
+			return jdbc.queryForObject(SELECT_BOARD_ID, Collections.emptyMap(), int.class);
+		}catch(EmptyResultDataAccessException e) {
+			return 1;
 		}
 	}
 	
@@ -121,9 +132,8 @@ public class BoardDaoImpl implements BoardDao {
 	}
 	//리스트 상세정보
 	@Override
-	public DetailInfoVo detailInfoById(int id) {
-		Map<String, Object> param = Collections.singletonMap("id", id);
-		return jdbc.queryForObject(SELECT_DETAIL_INFO_BYID, param, detailInfoRowMapper);
+	public DetailInfoVo detailInfoById(int board_id) {
+		return jdbc.queryForObject(SELECT_DETAIL_INFO_BYID, Collections.singletonMap("board_id", board_id), detailInfoRowMapper);
 	}
 	//조회수 증가
 	@Override
@@ -144,11 +154,15 @@ public class BoardDaoImpl implements BoardDao {
 		return jdbc.queryForObject(SELECT_FILE_INFO, param, fileInfoRowMapper);
 	}
 	
-	//글삭제
+	//글 정보 삭제
 	@Override
-	public int deletePostById(int id) {
-		Map<String,Object> param = Collections.singletonMap("id", id);
-		return jdbc.update(DELETE_POST_BYID, param);
+	public int deletePostById(int board_id) {
+		return jdbc.update(DELETE_POST_BYID, Collections.singletonMap("board_id", board_id));
+	}
+	//댓글 정보 삭제
+	@Override
+	public int deleteReplyInfo(int board_id) {
+		return jdbc.update(DELETE_REPLY_BYID, Collections.singletonMap("board_id", board_id));
 	}
 	
 	//파일 정보 삭제
@@ -157,6 +171,7 @@ public class BoardDaoImpl implements BoardDao {
 		Map<String,Object> param = Collections.singletonMap("fileHashCode", fileHashCode);
 		return jdbc.update(DELETE_FILE_INFO, param);
 	}
+	
 	
 	//파일 삭제후 해쉬코드 null로 갱신
 	@Override
@@ -175,6 +190,39 @@ public class BoardDaoImpl implements BoardDao {
 		param.put("hashCode", hashCode);
 		jdbc.update(UPDATE_DETAIL_INFO, param);
 	}
+
+	@Override
+	public List<ListInfoVo> getSearchListInfo(String searchKeyword, int start, int limit) {
+		Map<String,Object> param = new HashMap<>();
+		param.put("keyword", "%"+searchKeyword+"%");
+		param.put("start", start);
+		param.put("limit", limit);
+		return jdbc.query(SELECT_SEARCH_LIST, param, listInfoRowMapper);
+	}
+	
+	@Override
+	public int getSearchListCount(String searchKeyword) {
+		return jdbc.queryForObject(SELECT_SEARCH_LIST_COUNT, Collections.singletonMap("keyword", "%"+searchKeyword+"%"), int.class);
+	}
+	//댓글 등록
+	@Override
+	public void replyRegister(int user_id, int board_id, String comment) {
+		Map<String, Object> param = new HashMap<>();
+		param.put("user_id",user_id);
+		param.put("board_id", board_id);
+		param.put("comment", comment);
+		param.put("create_date", new Date());
+		jdbc.update(INSERT_REPLY_REGISTER, param);
+	}
+
+	//댓글 리스트
+	@Override
+	public List<ReplyListInfoVo>replyListInfoById(int board_id){
+		return jdbc.query(SELECT_REPLY_INFO, Collections.singletonMap("board_id", board_id), replyInfoRowMapper);
+	}
+
+
+	
 	
 	
 	

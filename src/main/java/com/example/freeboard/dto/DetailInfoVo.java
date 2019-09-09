@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class DetailInfoVo {
 	private int id;
+	private int user_id;
 	private String nickName;
 	private String title;
 	private String content;
@@ -15,6 +16,12 @@ public class DetailInfoVo {
 	}
 	public void setId(int id) {
 		this.id = id;
+	}
+	public int getUser_id() {
+		return user_id;
+	}
+	public void setUser_id(int user_id) {
+		this.user_id = user_id;
 	}
 	public String getNickName() {
 		return nickName;
@@ -52,12 +59,14 @@ public class DetailInfoVo {
 	public void setFile_hashCode(Integer file_hashCode) {
 		this.file_hashCode = file_hashCode;
 	}
-	
 	@Override
 	public String toString() {
-		return "DetailInfoVo [id=" + id + ", nickName=" + nickName + ", title=" + title + ", content=" + content
-				+ ", create_date=" + create_date + ", views=" + views + ", file_hashCode=" + file_hashCode + "]";
+		return "DetailInfoVo [id=" + id + ", user_id=" + user_id + ", nickName=" + nickName + ", title=" + title
+				+ ", content=" + content + ", create_date=" + create_date + ", views=" + views + ", file_hashCode="
+				+ file_hashCode + "]";
 	}
+	
+
 
 	
 }
