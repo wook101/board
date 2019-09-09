@@ -22,7 +22,6 @@ public class WebMvcContextConfiguration extends WebMvcConfigurerAdapter {
         registry.addResourceHandler("/css/**").addResourceLocations("/resources/css/").setCachePeriod(31556926);
         registry.addResourceHandler("/img/**").addResourceLocations("/resources/img/").setCachePeriod(31556926);
         registry.addResourceHandler("/js/**").addResourceLocations("/resources/js/").setCachePeriod(31556926);
-        System.out.println("실행~~");
     }
 	
 	//mapping이 없는 url이 들어왔을때 처리

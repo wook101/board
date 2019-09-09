@@ -1,3 +1,22 @@
+#search_group{
+	text-align:right;
+}
+#searchInput{
+	border-color: #d9d9d9;
+	vertical-align:middle;
+	font-size:13px;
+	padding:3px 4px;
+}
+#searchInput:focus{
+    outline: 0 none;
+}
+#searchBtn{
+	font-weight:bold;
+	vertical-align:middle;
+}
+#writeBtn{
+	font-weight:bold;
+}
 table{
 	border:solid 1px #c7c7c7;
 	background-color: #fff;

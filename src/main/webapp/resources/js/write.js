@@ -35,7 +35,7 @@ function loginStateCheck(){
 			}
 			else{
 				alert('로그인을 다시 해주세요');
-				location.href="/login";
+				location.href="/FreeBoard/login";
 			}
 		}
 	});

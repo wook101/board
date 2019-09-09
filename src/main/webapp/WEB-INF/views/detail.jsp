@@ -9,9 +9,6 @@
 	<layout:put block="contents">
 		<div class="jumbotron">
 			<div class="title">
-				<!--  
-				<i class="listID">${detailInfo.id }</i>
-				-->
 				${detailInfo.title }
 			</div>
 			<div class="userInfo_area">
@@ -23,7 +20,7 @@
 				<span><i>조회수 </i><em class="views">${detailInfo.views }</em></span>			
 			</div>
 			<div class="btn_area">
-				<c:if test="${sessionScope.nickName eq detailInfo.nickName }">
+				<c:if test="${sessionScope.user_id eq detailInfo.user_id }">
 					<button class="btn btn-secondary btn-sm" id="updateBtn" value="${detailInfo.id }">수정</button>
 					<button class="btn btn-secondary btn-sm" id="deleteBtn" value="${detailInfo.id }">삭제</button>
 				</c:if>
@@ -35,6 +32,41 @@
 				</c:if>
 				<div class="content_text">${detailInfo.content }</div>
 			</div>
+			
+			
+			<div id="reply_area">
+			
+				<div id="replywWtrite">
+					<h5>댓글</h5>
+					<div style="border:solid 1px #c3c3c3">
+						<form id="replyForm" method="post" action="/FreeBoard/replyForm?board_id=${detailInfo.id }">
+							<textarea id="write_textarea" name="comment" placeholder="로그인 후 이용가능!!"></textarea>
+							<div class="replyBtn_area">
+								<button type="submit" id="replyBtn">등록</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			
+
+				<div id="replyView">
+					<ul>
+						
+						  
+						<c:forEach items="${replyListInfo}" var="list">
+							<li>
+								<span>
+									<i>${list.nickName }</i>
+									<em><fmt:formatDate value="${list.create_date }" pattern="yyyy.MM.dd"/></em>
+								</span>					
+								<p>${list.comment }</p>	
+							</li>
+						</c:forEach>
+										
+					</ul>
+				</div>
+			</div>
+			
 		</div>
 
 	</layout:put>

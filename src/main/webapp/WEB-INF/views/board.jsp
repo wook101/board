@@ -8,6 +8,16 @@
 	<layout:put block="title">자유 게시판</layout:put>
 	<layout:put block="board_active">tab_active</layout:put>
 	<layout:put block="contents">
+		<form id="searchForm" method="get" action="/FreeBoard/search">
+			<div id="search_group" class="form-group">
+				<input type="text" name="searchKeyword" id="searchInput">
+				<button type="submit" class="btn btn-secondary btn-sm" id="searchBtn">검색</button>
+			</div>
+		</form>
+		<c:if test="${empty boardList}">
+			<h3>검색 글이 존재 하지않습니다.</h3>
+		</c:if>
+		<c:if test="${!empty boardList}">
 		<table class="table">
 				<thead>
 					<tr>
@@ -37,14 +47,17 @@
 	
 			<ul class="pagination pagination-sm justify-content-center ">
 				<c:if test="${prePageStart > 0 }">
-					<li class="page-item"><a class="page-link" href="board?start=${prePageStart }">&laquo;</a></li>
+					<li class="page-item"><a class="page-link" href="${type}?start=${prePageStart }&searchKeyword=${keyword}">&laquo;</a></li>
 				</c:if>
 				<c:forEach items="${pageList}" var="pageIndex" varStatus="status">
-					<li class="page-item"><a class="page-link" href="board?start=${(pageIndex-1)*listCount }">${pageIndex }</a></li>
+					<li class="page-item"><a class="page-link" href="${type}?start=${(pageIndex-1)*listCount }&searchKeyword=${keyword}">${pageIndex }</a></li>
 				</c:forEach>
 				<c:if test="${nextPageArrow}">				
-					<li class="page-item"><a class="page-link" href="board?start=${nextPageStart }">&raquo;</a></li>
+					<li class="page-item"><a class="page-link" href="${type}?start=${nextPageStart }&searchKeyword=${keyword}">&raquo;</a></li>
 				</c:if>
 			</ul>
+		</c:if>
+			
+			
 	</layout:put>
 </layout:extends>
