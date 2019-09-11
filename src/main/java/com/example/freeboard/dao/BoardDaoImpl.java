@@ -220,6 +220,11 @@ public class BoardDaoImpl implements BoardDao {
 	public List<ReplyListInfoVo>replyListInfoById(int board_id){
 		return jdbc.query(SELECT_REPLY_INFO, Collections.singletonMap("board_id", board_id), replyInfoRowMapper);
 	}
+	//댓글 삭제
+	@Override
+	public int deleteReplyById(int reply_id) {
+		return jdbc.update(DELETE_REPLY, Collections.singletonMap("reply_id", reply_id));
+	}
 
 
 	

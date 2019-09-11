@@ -2,10 +2,39 @@ function init(){
 	moveToUpdateForm();	//수정 폼으로
 	deletePost();		//게시글 삭제
 	replyRegister();	//댓글 등록
+	replyDeleteEvent(); //댓글 삭제
 }
 document.addEventListener("DOMContentLoaded",function(){
 	init();
 });
+//댓글 삭제
+function replyDeleteEvent(){
+	var len = $('#replyView img').length;
+	if (len!=0){
+		for(var i=0;i<len;i++){
+			$('#replyView img')[i].addEventListener("click",function(){
+				if(confirm("댓글을 삭제하시겠습니까?")){
+					var reply_id = $(this).attr('data-replyid');
+					var delete_li = $(this).parents('li');
+					$.ajax({
+						url:"/FreeBoard/deleteReply/"+reply_id,
+						method:"delete",
+						success:function(result){
+							if (result==1){
+								delete_li.remove();
+							}
+							else
+								alert("삭제를 실패했습니다.");
+						}
+					});
+					
+				}
+			});
+		}
+	}
+	
+	
+}
 //댓글 등록
 function replyRegister(){
 	$('#replyBtn').click(function(e){
@@ -58,9 +87,8 @@ function loginStateCheck(){
 		success: function(data){
 			var check = (data ==='true');
 			if(check){						//로그인 상태
-				if(confirm("등록 하시겠습니까?")){
+				if(confirm("댓글을 등록 하시겠습니까?")){
 					$('#replyForm').submit();
-					alert('댓글이 등록 되었습니다.');
 				}
 			}
 			else{

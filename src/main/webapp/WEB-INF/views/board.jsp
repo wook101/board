@@ -15,7 +15,7 @@
 			</div>
 		</form>
 		<c:if test="${empty boardList}">
-			<h3>검색 글이 존재 하지않습니다.</h3>
+			<h3>검색 글이 존재하지 않습니다.</h3>
 		</c:if>
 		<c:if test="${!empty boardList}">
 		<table class="table">

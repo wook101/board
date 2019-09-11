@@ -232,7 +232,6 @@ public class BoardServiceImpl implements BoardService{
 		modelMap.addAttribute("nextPageStart",nextPageStart);
 		modelMap.addAttribute("nextPageArrow",nextPageArrow);
 		modelMap.addAttribute("type", type);
-		
 		modelMap.addAttribute("keyword", keyword);
 		
 	}
@@ -258,6 +257,11 @@ public class BoardServiceImpl implements BoardService{
 	@Override
 	public List<ReplyListInfoVo>replyListInfoById(int board_id){
 		return boardDao.replyListInfoById(board_id);
+	}
+	//댓글 삭제
+	@Override
+	public int deleteReplyById(int reply_id) {
+		return boardDao.deleteReplyById(reply_id);
 	}
 	
 
