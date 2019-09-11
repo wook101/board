@@ -121,6 +121,15 @@
 #replyView li p{
 	padding:5px 0 0 0;
 }
+
+.reply_delete{
+	margin:2px 0 0 5px;
+	width:20px;
+	height:16px;
+	vertical-align:top;
+	cursor:pointer;
+}
+
 @media screen and (max-width: 414px){
 	.content_area img{
 		width:100%;

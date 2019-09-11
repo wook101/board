@@ -35,4 +35,5 @@ public interface BoardDao {
 	public int getSearchListCount(String searchKeyword);
 	public void replyRegister(int user_id, int board_id, String comment);
 	public List<ReplyListInfoVo>replyListInfoById(int board_id);
+	public int deleteReplyById(int reply_id);
 }

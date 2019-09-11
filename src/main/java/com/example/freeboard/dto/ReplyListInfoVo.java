@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class ReplyListInfoVo {
 	private int id;
+	private int user_id;
 	private String nickName;
 	private String comment;
 	private Date create_date;
@@ -12,6 +13,12 @@ public class ReplyListInfoVo {
 	}
 	public void setId(int id) {
 		this.id = id;
+	}
+	public int getUser_id() {
+		return user_id;
+	}
+	public void setUser_id(int user_id) {
+		this.user_id = user_id;
 	}
 	public String getNickName() {
 		return nickName;
@@ -33,9 +40,10 @@ public class ReplyListInfoVo {
 	}
 	@Override
 	public String toString() {
-		return "ReplyListInfoVo [id=" + id + ", nickName=" + nickName + ", comment=" + comment + ", create_date="
-				+ create_date + "]";
+		return "ReplyListInfoVo [id=" + id + ", user_id=" + user_id + ", nickName=" + nickName + ", comment=" + comment
+				+ ", create_date=" + create_date + "]";
 	}
+
 	
 	
 }

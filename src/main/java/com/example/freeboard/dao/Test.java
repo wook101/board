@@ -14,7 +14,7 @@ public class Test {
 		ApplicationContext ac = new AnnotationConfigApplicationContext(ApplicationConfig.class);
 		BoardDao boardDao = ac.getBean(BoardDao.class);
 		
-		System.out.println(boardDao.deletePostById(74));
+		System.out.println(boardDao.deleteReplyById(12));
 	}
 
 }

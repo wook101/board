@@ -27,7 +27,6 @@ function loginStateCheck(){
 //pagination클릭시 배경색 초록
 function paginationCss(){
 	var path = decodeURI(location.pathname.replace("/FreeBoard/","")+location.search);
-	console.log(path);
 	if(path=="board"){
 		path="board?start=0&searchKeyword=null";
 	}else if(path.substr(0,6)=="search"){

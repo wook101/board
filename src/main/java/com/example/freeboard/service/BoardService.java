@@ -28,10 +28,11 @@ public interface BoardService {
 	public void writeRegister(int user_id, MultipartFile file, WriteFormVo writeFormVo);  			//글쓰기 등록
 	public int deletePostById(int id, Integer hashCode);															//글삭제
 	public int deleteFileInfo(Integer delHashCode);  																	//파일 정보 삭제
-	public void updatePost(int id, WriteFormVo writeFormVo,int user_id, MultipartFile file, Integer fileHashCode); 		 //글 정보 갱신
+	public void updatePost(int id, WriteFormVo writeFormVo,int user_id, MultipartFile file, Integer fileHashCode); //글 정보 갱신
 	public void pagination(ModelMap modelMap, int start, int totalListCount, String type, String searchKeyword); //페이징 처리
 	public List<ListInfoVo> getSearchListInfo(String searchKeyword, int start);							//검색 리스트
 	public int getSearchListCount(String searchKeyword);															//검색 리스트 수
 	public void replyRegister(int user_id, int board_id, String comment);									//댓글 등록
 	public List<ReplyListInfoVo>replyListInfoById(int board_id);												//댓글 리스트
+	public int deleteReplyById(int reply_id);																			//댓글 삭제
 }

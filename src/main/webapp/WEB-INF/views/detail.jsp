@@ -51,18 +51,18 @@
 
 				<div id="replyView">
 					<ul>
-						
-						  
 						<c:forEach items="${replyListInfo}" var="list">
 							<li>
 								<span>
 									<i>${list.nickName }</i>
 									<em><fmt:formatDate value="${list.create_date }" pattern="yyyy.MM.dd"/></em>
+									<c:if test="${sessionScope.user_id eq list.user_id}">
+										<img class="reply_delete" data-replyid="${list.id }" src="<c:url value="/resources/img/delete_icon.png"></c:url>"></img>
+									</c:if>
 								</span>					
 								<p>${list.comment }</p>	
 							</li>
-						</c:forEach>
-										
+						</c:forEach>				
 					</ul>
 				</div>
 			</div>

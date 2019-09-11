@@ -56,5 +56,7 @@ public class BoardDaoSqls {
  	//댓글 등록
  	public static final String INSERT_REPLY_REGISTER="insert into reply(user_id,board_id,comment,create_date)values(:user_id,:board_id,:comment,:create_date)";
  	//댓글 리스트(조인 두번)
- 	public static final String SELECT_REPLY_INFO ="select reply.id,nickName,comment,reply.create_date from user,board,reply where user.id=reply.user_id and board.id=reply.board_id and board_id=:board_id";
+ 	public static final String SELECT_REPLY_INFO ="select reply.id, reply.user_id, nickName, comment, reply.create_date from user, board, reply where user.id=reply.user_id and board.id=reply.board_id and board_id=:board_id";
+ 	//댓글 삭제
+ 	public static final String DELETE_REPLY = "delete from reply where id=:reply_id";
 }
