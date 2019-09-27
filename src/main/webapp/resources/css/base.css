@@ -11,10 +11,10 @@ body{
 .navbar{
 	padding:0;
 	background-color:#333;
-	border-top:solid 3px #4CAF50;
+	border-top:solid 3px #560398;
 }
-.navbar .nav-item:hover,.dropdown button:hover{
-	background-color:#4CAF50;
+.tab_active,.navbar .nav-item:hover,.dropdown button:hover{
+	background-color:blueviolet;
 }
 .navbar .col-md-10{
 	padding:0 15px;
@@ -75,13 +75,10 @@ body{
 }
 .dropdown-item:hover{
 	color:#fff;
-	background-color:#4CAF50;
+	background-color:blueviolet;
 	cursor:pointer;
 }
 
-.tab_active {
-  background-color: #4CAF50;
-}
 .container{
 	margin-top:25px;
 	padding:0;

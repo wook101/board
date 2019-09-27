@@ -1,5 +1,8 @@
 package com.example.freeboard.dao;
 
+import java.io.File;
+
+import org.apache.commons.io.FileUtils;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.web.multipart.MultipartFile;
@@ -14,7 +17,7 @@ public class Test {
 		ApplicationContext ac = new AnnotationConfigApplicationContext(ApplicationConfig.class);
 		BoardDao boardDao = ac.getBean(BoardDao.class);
 		
-		System.out.println(boardDao.deleteReplyById(12));
+		System.out.println(boardDao.getEncPassword("iu"));
 	}
 
 }

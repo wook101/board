@@ -78,15 +78,21 @@ function thumbnailAdd(){
 			$(this).val('');
 			return;
 		}
-		if(image.size > 5242880){	//파일용량 최대 5MB
-			alert('파일 이미지는 5MB이내로 등록 가능합니다.');
+		if(image.size > 3145728){	//파일용량 최대 3MB
+			alert('파일 이미지는 3MB이내로 등록 가능합니다.');
 			$(this).val('');
 			return;
 		}
-		var url = window.URL.createObjectURL(image);
-		$('#thumbnailImg').attr('src',url);
-		$('.thumbnail_area').css('display','');
-		$('#deleteImg').val("null")
+		if(location.hostname=="localhost"){
+			var url = window.URL.createObjectURL(image);
+			$('#thumbnailImg').attr('src',url);
+			$('.thumbnail_area').css('display','');
+			$('#deleteImg').val("null");
+		}else{
+			//하드 용량 확인 [배포된 상태일때]
+			fileSizeTest(image);
+		}
+
 	});
 }
 //textArea길이 적용
@@ -94,5 +100,23 @@ function textAreaLen(){
 	$('#content').keyup(function(e){
 		var textLen = e.target.value.length;
 		$('#textNum').text(textLen); 
+	});
+}
+//하드 용량 확인 [배포된 상태일때]
+function fileSizeTest(image){
+	$.ajax({
+		url:"/FreeBoard/check",
+		method:"get",
+		success:function(currentfileSize){
+			if(Number(currentfileSize) + image.size < 190200000){
+				var url = window.URL.createObjectURL(image);
+				$('#thumbnailImg').attr('src',url);
+				$('.thumbnail_area').css('display','');
+				$('#deleteImg').val("null");
+			}else{
+				alert('현재 웹하드의 용량이 가득차서 이미지를 업로드 할 수 없습니다.');
+				$('#addFile').val('')
+			}	
+		}
 	});
 }

@@ -8,6 +8,10 @@
 .loginForm{
 	margin-top:80px;
 }
+#loginBtn{
+	color:#fff;
+	background-color:#560398;
+}
 .btn-success{
 	font-size:18px;
 }

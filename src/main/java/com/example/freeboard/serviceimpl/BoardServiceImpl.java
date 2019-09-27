@@ -49,12 +49,12 @@ public class BoardServiceImpl implements BoardService{
 		return boardDao.getUserTableId(userID);
 	}
 	
-	//로그인 폼 검사
+	//로그인 검사를 위한 암화된 패스워드
 	@Override
-	public int loginCheck(String userID, String password) {
-		return boardDao.loginCheck(userID, password);
+	public String getEncPassword(String userID) {
+		return boardDao.getEncPassword(userID);
 	}
-	
+
 	//회원가입 폼 검사
 	@Override
 	public int joinFormVaildation(String type, String formVal) {
@@ -97,7 +97,7 @@ public class BoardServiceImpl implements BoardService{
 			 BufferedOutputStream bos =new BufferedOutputStream(fos);
 			 InputStream is =  file.getInputStream();
 			 BufferedInputStream bis =new BufferedInputStream(is);
-
+			
 				) {		
 			 	int readCount = 0;
 			 	byte[] buffer = new byte[1024];

@@ -14,7 +14,7 @@ import com.example.freeboard.dto.WriteFormVo;
 
 public interface BoardDao {
 	public int joinFormInsert(JoinformVo joinformvo); 
-	public int loginCheck(String userID, String password); 
+	public String getEncPassword(String userID);
 	public int joinFormVaildation(String type, String formVal); 
 	public int fileInfoInsert(int board_id, MultipartFile file); 
 	public int writeFormInsert(int user_id, WriteFormVo writeFormVo, int views, Integer hashCode);

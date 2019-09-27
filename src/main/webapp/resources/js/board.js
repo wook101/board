@@ -1,10 +1,12 @@
 function init(){
 	loginStateCheck(); 			//로그인 상태 확인
 	paginationCss();			//pagination클릭시 배경색 초록
+	
 }
 document.addEventListener("DOMContentLoaded",function(){
 	init();
 });
+
 //로그인 상태 확인
 function loginStateCheck(){
 	$('#writeBtn').click(function(){
@@ -24,7 +26,7 @@ function loginStateCheck(){
 		});
 	});
 }
-//pagination클릭시 배경색 초록
+//pagination클릭시 배경색 보라
 function paginationCss(){
 	var path = decodeURI(location.pathname.replace("/FreeBoard/","")+location.search);
 	if(path=="board"){

@@ -17,7 +17,7 @@ function loginFormValidation(){
 			$('.form_feedback').text('아이디와 비밀번호를 기입해주세요.').addClass('validation_fail');
 			return;
 		}
-		
+
 		$.ajax({
 			url:'/FreeBoard/loginCheck',
 			method:'post',
@@ -33,7 +33,7 @@ function loginFormValidation(){
 				}
 			}
 		});
-		
+
 	});
 	
 }

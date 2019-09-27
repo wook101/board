@@ -48,14 +48,15 @@ public class BoardDaoImpl implements BoardDao {
 		param.put("email", joinformvo.getEmail());
 		return jdbc.update(INSERT_JOINFORM, param);
 	}
-	
-	//로그인 폼 체크
+
+	//암호화된 패스워드
 	@Override
-	public int loginCheck(String userID, String password) {
-		Map<String,String> param = new HashMap<>();
-		param.put("userID", userID);
-		param.put("password", password);
-		return jdbc.queryForObject(COUNT_LOGIN_CHECK, param, Integer.class);
+	public String getEncPassword(String userID) {
+		try {
+			return jdbc.queryForObject(SELECT_LOGIN_PASSWORD,Collections.singletonMap("userID", userID),String.class);
+		}catch(EmptyResultDataAccessException e) {
+			return null;
+		}
 	}
 	
 	//회원가입 폼 체크

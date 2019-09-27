@@ -21,7 +21,7 @@
 				<div class="col-md-1"></div>
 				<div class="col-md-10">
 					<ul class="navbar-nav">
-						<li class="nav-item"><img class="home" onclick="location.href='/FreeBoard'" src="<c:url value="/resources/img/home2.png"></c:url>"></li>
+						<li class="nav-item"><img class="home" onclick="location.href='/FreeBoard'" src="<c:url value="/resources/img/home4.png"></c:url>"></li>
 						<li class="nav-item <layout:block name="board_active"></layout:block>"><a class="nav-link" href="/FreeBoard/board">자유 게시판</a></li>
 						<li class="dropdown_area">
 							<div class="dropdown">

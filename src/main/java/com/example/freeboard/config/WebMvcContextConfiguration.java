@@ -3,8 +3,8 @@ package com.example.freeboard.config;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.web.filter.HiddenHttpMethodFilter;
 import org.springframework.web.multipart.MultipartResolver;
+import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
@@ -33,7 +33,7 @@ public class WebMvcContextConfiguration extends WebMvcConfigurerAdapter {
     //특별한 url요청을 안했을때 
     @Override
     public void addViewControllers(final ViewControllerRegistry registry) {
-        registry.addViewController("/").setViewName("main");
+    	//registry.addViewController("/login");		//로그인 페이지
     }
     
     
@@ -48,7 +48,7 @@ public class WebMvcContextConfiguration extends WebMvcConfigurerAdapter {
     //multipart요청이 올경우 파일업로드 처리 파일크기는 최대5MB로 설정
     @Bean
     public MultipartResolver multipartResolver() {
-        org.springframework.web.multipart.commons.CommonsMultipartResolver multipartResolver = new org.springframework.web.multipart.commons.CommonsMultipartResolver();
+    	CommonsMultipartResolver multipartResolver = new CommonsMultipartResolver();
         multipartResolver.setMaxUploadSize(5242880); // 1024 * 1024 * 5
         return multipartResolver;
     }
