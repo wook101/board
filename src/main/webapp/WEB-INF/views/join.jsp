@@ -36,7 +36,7 @@
 							<input type="email" class="form-control" id="email" name="email">
 							<div class="email_feedback"></div>
 						</div>
-							<button id="joinBtn" type="submit" class="btn btn-success form-control">가입하기</button>						
+							<button id="joinBtn" type="submit" class="btn btn-default form-control">가입하기</button>						
 					</form>
 				</div>
 			</div>

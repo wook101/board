@@ -11,8 +11,9 @@ public class BoardDaoSqls {
 	public static final String EMAIL_VALIDATION = "select count(*) from user where email=:formVal";
 	
 	//login 체크
-	public static final String COUNT_LOGIN_CHECK = "select count(*) from user where userID=:userID and password=:password";
-	
+	//public static final String COUNT_LOGIN_CHECK = "select count(*) from user where userID=:userID and password=:password";
+	//암호화 된 패스워드 
+	public static final String SELECT_LOGIN_PASSWORD = "select password from user where userID=:userID";
 	//이미지 파일 정보 삽입
 	public static final String INSERT_FILEINFO = "insert into file(board_id, originalFileName,contentType, size, hashCode) values(:board_id,:originalFileName,:contentType, :size, :hashCode)";
 	//글쓰기 폼 정보 삽입

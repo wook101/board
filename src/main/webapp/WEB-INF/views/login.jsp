@@ -19,7 +19,7 @@
 			<div class="col-md-10">
 				<div class="jumbotron text-center">
 					<h2>로그인</h2>
-					<form class="loginForm" method="post" action="loginForm">
+					<form class="loginForm" method="post" action="perform_login">
 						<div class="form-group">
 							<input type="text" class="form-control" placeholder="아이디"
 								name="userID" id="userID">
@@ -30,7 +30,7 @@
 							<div class="form_feedback"></div>
 						</div>
 						<button id="loginBtn" type="submit"
-							class="btn btn-success form-control">로그인</button>
+							class="btn btn-default form-control">로그인</button>
 					</form>
 				</div>
 			</div>

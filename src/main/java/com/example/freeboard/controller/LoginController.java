@@ -4,7 +4,11 @@ import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -16,21 +20,20 @@ import com.example.freeboard.service.BoardService;
 
 @Controller
 public class LoginController {
+		private Logger logger = LoggerFactory.getLogger(this.getClass());
 		@Autowired
 		BoardService boardService;
+		@Autowired
+		BCryptPasswordEncoder passwordEncoder;
 		
-		//로그인
+		//로그인 페이지
 		@GetMapping("/login")
-		public String getLogin() {
-			return "login";
+		public String loginPage() {
+			return "/login";
 		}
-		
 		//로그인정보 세션에 저장
-		@PostMapping("/loginForm")
-		public String postLoginform(@RequestParam (name="userID") String userID,
-													@RequestParam (name="password") String password,
-													HttpSession session) {
-			
+		@PostMapping("/perform_login")
+		public String postLoginform(@RequestParam (name="userID") String userID, HttpSession session) {
 			int user_id = boardService.getUserTableId(userID);
 			session.setAttribute("user_id", user_id);
 			return "redirect:/board";
@@ -43,19 +46,14 @@ public class LoginController {
 		@PostMapping(value="/loginCheck", produces = "application/text; charset=UTF8")
 		public String postAjaxLoginCheck(@RequestBody Map<String, String> param) {
 			String userID = (String) param.get("userID");
-			String password = (String) param.get("password");
-			String loginCheckCount = Integer.toString(boardService.loginCheck(userID,password));
-			return loginCheckCount;
-		}
-		
-		//회원가입 폼 
-		@ResponseBody
-		@PostMapping(value="/formValidation", produces = "application/text; charset=UTF8")
-		public String postAjaxUserCheck(@RequestBody Map<String, String> param) {
-			String type = (String) param.get("type");
-			String formVal = (String) param.get("formVal");
-			String checkCount = Integer.toString(boardService.joinFormVaildation(type, formVal));
-			return checkCount;
+			String rawPassword = (String) param.get("password");
+			String encodedPassword = boardService.getEncPassword(userID);
+			Boolean passwordMatch = passwordEncoder.matches(rawPassword, encodedPassword);
+			if(passwordMatch) {
+				return "1";			//로그인 성공
+			}else {
+				return "0";			//로그인 실패
+			}
 		}
 		
 		//로그인 상태 확인
@@ -67,12 +65,6 @@ public class LoginController {
 			return true;
 		}
 		
-		//로그아웃
-		@GetMapping("/logout")
-		public String logout(HttpSession session) {
-			session.invalidate();	//세션 무효화
-			return "redirect:/";
-		}
 		
 		
 }

@@ -15,7 +15,7 @@
 			</div>
 		</form>
 		<c:if test="${empty boardList}">
-			<h3>검색 글이 존재하지 않습니다.</h3>
+			<h3>글이 존재하지 않습니다.</h3>
 		</c:if>
 		<c:if test="${!empty boardList}">
 		<table class="table">
@@ -40,11 +40,11 @@
 					</c:forEach>
 				</tbody>
 			</table>
-	
+		</c:if>
 			<div class="writeArea">
-				<button type="button" id="writeBtn" class="btn btn-success btn-sm">글쓰기</button>
+				<button type="button" id="writeBtn" class="btn btn-default btn-sm">글쓰기</button>
 			</div>
-	
+		<c:if test="${!empty boardList}">
 			<ul class="pagination pagination-sm justify-content-center ">
 				<c:if test="${prePageStart > 0 }">
 					<li class="page-item"><a class="page-link" href="${type}?start=${prePageStart }&searchKeyword=${keyword}">&laquo;</a></li>

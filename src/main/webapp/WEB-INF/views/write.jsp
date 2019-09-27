@@ -26,7 +26,7 @@
 					</div>
 				</div>
 				<div class="register_area">
-					<button type="submit" id="registerBtn" class="btn btn-success">등록</button>
+					<button type="submit" id="registerBtn" class="btn btn-default">등록</button>
 				</div>				
 			</form>
 		</div>

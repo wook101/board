@@ -15,7 +15,8 @@ import org.springframework.transaction.annotation.TransactionManagementConfigure
 public class DBConfig implements TransactionManagementConfigurer{
 	private String driverClassName = "com.mysql.jdbc.Driver";
 
-	/*호스팅서버 연결계정
+	//호스팅서버 
+	/*
 	private String url = "";
 	private String username = "";
 	private String password = "";

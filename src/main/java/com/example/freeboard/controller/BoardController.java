@@ -2,12 +2,14 @@ package com.example.freeboard.controller;
 
 
 
+import java.io.File;
 import java.util.List;
 
 
 
 import javax.servlet.http.HttpSession;
 
+import org.apache.commons.io.FileUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,12 +17,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-
-
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.example.freeboard.dto.ListInfoVo;
-import com.example.freeboard.dto.ReplyListInfoVo;
-import com.example.freeboard.dto.DetailInfoVo;
 import com.example.freeboard.service.BoardService;
 
 @Controller
@@ -28,6 +27,7 @@ public class BoardController {
 	private Logger logger = LoggerFactory.getLogger(this.getClass());
 	@Autowired
 	BoardService boardService;
+	
 	
 	//홈 화면
 	@GetMapping("/")
@@ -67,6 +67,19 @@ public class BoardController {
 	}
 	
 	
+	//하드 용량 테스트 (배포 되었을때)
+	@ResponseBody
+	@GetMapping("/check")
+	public String check() {
+		String path1 = "tomcat";
+		String path2 = "boardImgFile";
+		String path3 = "reserveImgFile";
+		long size1 = FileUtils.sizeOfDirectory(new File(path1));
+		long size2 = FileUtils.sizeOfDirectory(new File(path2));
+		long size3 = FileUtils.sizeOfDirectory(new File(path3));
+		
+		return Long.toString(size1+size2+size3);
+	}
 	
 	
 }

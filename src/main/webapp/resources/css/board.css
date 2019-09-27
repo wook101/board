@@ -16,6 +16,8 @@
 }
 #writeBtn{
 	font-weight:bold;
+	background-color: #560398;
+	color:#fff;
 }
 table{
 	border:solid 1px #c7c7c7;
@@ -45,7 +47,7 @@ tbody > tr:hover{
 }
 
 .pagination a.active {
-  background-color: #4CAF50;
+  background-color: #560398;
   color: white;
   border-radius: 5px;
 }

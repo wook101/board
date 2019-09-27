@@ -24,6 +24,10 @@ label[for="addFile"]{
 .register_area{
 	text-align:right;
 }
+#registerBtn{
+	background-color: #560398;
+    color: #fff;
+}
 @media (max-width:414px){
 	#thumbnailImg{
 		width:250px;

@@ -17,7 +17,7 @@ public interface BoardService {
 	//public static final String filePath = "boardImgFile/";															//호스팅서버 파일 경로
 	public static final String filePath = "c:/Users/ehddn/Desktop/게시판 프로젝트/imgFile/";			//로컬서버 파일 경로
 	public static final int LIMIT = 10;																					//한 화면에 보여줄 게시물 수	
-	public int loginCheck(String userID, String password);														//로그인 폼 검사
+	public String getEncPassword(String userID);																		//로그인 검사를 위한 암화된 패스워드
 	public int joinFormVaildation(String type, String formVal);													//회원가입 폼 검사
 	public int joinFormInsert(JoinformVo joinformvo);																//회원가입 정보 삽입
 	public int getUserTableId(String userID);																			//user 테이블 id
