@@ -16,7 +16,7 @@
 
 
 ### 데이터베이스 모델링
-
+<img width="539" alt="데이터베이스 모델링" src="https://user-images.githubusercontent.com/45925158/71545555-cd722380-29cf-11ea-8274-3cce132a4acf.PNG">
 
 
 
