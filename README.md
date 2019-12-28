@@ -1,12 +1,12 @@
-# spring mvc 게시판
+## spring mvc 게시판
 
-# 사용기술 
+### 사용기술 
 * java, jsp, javascript, css
 * bootstrap4, jQuery , Ajax, jstl, el 
 * spring, springJDBC
 * RDBMS - mysql
 
-## 개발환경
+### 개발환경
 * 이클립스
 * spring 4.3.5
 * maven 3.5
@@ -15,7 +15,7 @@
 
 
 
-## 데이터베이스 모델링
+### 데이터베이스 모델링
 
 
 
