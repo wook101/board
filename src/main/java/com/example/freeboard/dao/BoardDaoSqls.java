@@ -50,8 +50,8 @@ public class BoardDaoSqls {
  	public static final String UPDATE_DETAIL_INFO= "update board set title=:title, content=:content, file_hashCode=:hashCode where id=:id";
  	
  	//검색 리스트
- 	public static final String SELECT_SEARCH_LIST = "select * from board where title like :keyword order by id desc limit :start,:limit" ;
- 	//검색 리스트 수
+ 	public static final String SELECT_SEARCH_LIST = "select board.id, nickName, title, create_date, views from board, user where user.id=board.user_id and board.title like :keyword order by id desc limit :start,:limit" ;
+ 	//검색 리스트 수										
  	public static final String SELECT_SEARCH_LIST_COUNT = "select count(*) from board where title like :keyword";
  	
  	//댓글 등록
@@ -60,4 +60,8 @@ public class BoardDaoSqls {
  	public static final String SELECT_REPLY_INFO ="select reply.id, reply.user_id, nickName, comment, reply.create_date from user, board, reply where user.id=reply.user_id and board.id=reply.board_id and board_id=:board_id";
  	//댓글 삭제
  	public static final String DELETE_REPLY = "delete from reply where id=:reply_id";
+ 	
+ 	public int a() {
+ 		return 1;
+ 	}
 }
