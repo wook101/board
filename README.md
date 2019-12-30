@@ -39,7 +39,7 @@
  
 ### 로그인 / 회원가입
  * 유효성 검사
- * 비밀번호 암호화 - BCryptPasswordEncoder 객체의 passwordEncoder를 사용하여 암호화한 후 비밀번호를 DB 테이블에 저장했습니다. 
+ * _비밀번호 암호화_ - BCryptPasswordEncoder 객체의 passwordEncoder를 사용하여 암호화한 후 비밀번호를 DB 테이블에 저장했습니다. 
 <img width="803" alt="login" src="https://user-images.githubusercontent.com/45925158/71574847-e5f85000-2b2d-11ea-8f05-9d6ad331c0c3.PNG">
 <img width="788" alt="join" src="https://user-images.githubusercontent.com/45925158/71574869-fc061080-2b2d-11ea-8978-6e184c62b630.PNG">
 
