@@ -23,7 +23,13 @@ spring mvc구조와 REST API의 규칙에 맞게 게시판을 프로젝트를 �
  * **페이징 처리**
 <img width="826" alt="board" src="https://user-images.githubusercontent.com/45925158/71576621-8a7d9080-2b34-11ea-8942-7af3e37ea348.PNG">
  <img width="781" alt="detail1" src="https://user-images.githubusercontent.com/45925158/71574779-a2054b00-2b2d-11ea-9f77-719bee5e6f73.PNG">
- 
+
+### 댓글
+ * **댓글 등록**
+ * **댓글 삭제**
+<img width="762" alt="detail3" src="https://user-images.githubusercontent.com/45925158/71574902-20fa8380-2b2e-11ea-91ce-1d983a20bc57.PNG">
+
+
 ### 글쓰기
  * **게시글 등록**
  * **게시글 수정**
@@ -31,11 +37,6 @@ spring mvc구조와 REST API의 규칙에 맞게 게시판을 프로젝트를 �
  * **이미지 파일 업로드 및 다운로드**
 <img width="781" alt="write" src="https://user-images.githubusercontent.com/45925158/71575014-99f9db00-2b2e-11ea-83db-26a990d94fed.PNG">
 <img width="782" alt="writeResult" src="https://user-images.githubusercontent.com/45925158/71575163-420fa400-2b2f-11ea-8844-3fdab9617509.PNG">
-
-### 댓글
- * **댓글 등록**
- * **댓글 삭제**
-<img width="762" alt="detail3" src="https://user-images.githubusercontent.com/45925158/71574902-20fa8380-2b2e-11ea-91ce-1d983a20bc57.PNG">
  
  
 ### 로그인 / 회원가입
