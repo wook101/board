@@ -16,30 +16,35 @@
 ### 데이터베이스 모델링
 <img width="539" alt="데이터베이스 모델링" src="https://user-images.githubusercontent.com/45925158/71545555-cd722380-29cf-11ea-8274-3cce132a4acf.PNG">
 
-
 ### 게시글
  * 게시글 조회
  * 게시글 검색
  * 페이징 처리
+ <img width="818" alt="board" src="https://user-images.githubusercontent.com/45925158/71574636-feb43600-2b2c-11ea-87db-3b04ec31ba9f.PNG">
+ <img width="781" alt="detail1" src="https://user-images.githubusercontent.com/45925158/71574779-a2054b00-2b2d-11ea-9f77-719bee5e6f73.PNG">
  
 ### 글쓰기
  * 게시글 등록
  * 게시글 수정
  * 게시글 삭제
  * 이미지 파일 업로드 및 다운로드
+<img width="781" alt="write" src="https://user-images.githubusercontent.com/45925158/71575014-99f9db00-2b2e-11ea-83db-26a990d94fed.PNG">
+<img width="782" alt="writeResult" src="https://user-images.githubusercontent.com/45925158/71575163-420fa400-2b2f-11ea-8844-3fdab9617509.PNG">
 
 ### 댓글
  * 댓글 등록
  * 댓글 삭제
-
+<img width="762" alt="detail3" src="https://user-images.githubusercontent.com/45925158/71574902-20fa8380-2b2e-11ea-91ce-1d983a20bc57.PNG">
+ 
+ 
 ### 로그인 / 회원가입
  * 유효성 검사
  * 비밀번호 암호화
+<img width="803" alt="login" src="https://user-images.githubusercontent.com/45925158/71574847-e5f85000-2b2d-11ea-8f05-9d6ad331c0c3.PNG">
+<img width="788" alt="join" src="https://user-images.githubusercontent.com/45925158/71574869-fc061080-2b2d-11ea-8978-6e184c62b630.PNG">
 
 
 ### 기타 (프론트 앤드)
 * 모바일에서 봤을때도 화면이 틀어지지 않도록 반응형웹으로 시도했습니다.
 * 상단의 navigation Bar가 모든 페이지에서 보여지게 하기위해 jsp상속 라이브러리를 사용해 구현했습니다.
-
-
 
