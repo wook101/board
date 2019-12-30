@@ -38,8 +38,7 @@
  
  
 ### 로그인 / 회원가입
- * **유효성 검사** - 로그인)해당 유저ID와 비밀번호가 회원가입정보의 데이터와 일치하는지 비지니스 로직을 통해 검사합니다.
-                   회원가입)중복된 유저ID가 있는지 검사합니다.
+ * **유효성 검사** - 로그인시 입력한 해당 유저ID와 비밀번호가 회원가입정보의 데이터와 일치하는지 비지니스 로직을 통해 검사합니다. 회원가입시에는 중복된 유저ID가 있는지 검사합니다.
  * **비밀번호 암호화** - BCryptPasswordEncoder객체의 passwordEncoder메소드를 사용하여 암호화한 후 비밀번호를 테이블에 저장했습니다. 
 <img width="803" alt="login" src="https://user-images.githubusercontent.com/45925158/71574847-e5f85000-2b2d-11ea-8f05-9d6ad331c0c3.PNG">
 <img width="788" alt="join" src="https://user-images.githubusercontent.com/45925158/71574869-fc061080-2b2d-11ea-8978-6e184c62b630.PNG">
