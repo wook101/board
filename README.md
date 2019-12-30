@@ -1,4 +1,5 @@
 ## spring mvc 게시판
+spring mvc구조와 REST API의 규칙에 맞게 게시판을 프로젝트를 만들었습니다. HTTP메소드를 통해 CRUD기법을 직접 구현해보고 클라이언트의 요청이 오면 url라우팅처리로 그에 알맞은 응답이 보내질 수 있도록 구현했습니다. 
 
 ### 사용기술 
 * java, jsp, javascript, css
