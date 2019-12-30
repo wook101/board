@@ -20,7 +20,7 @@
  * 게시글 조회
  * 게시글 검색
  * 페이징 처리
- <img width="818" alt="board" src="https://user-images.githubusercontent.com/45925158/71574636-feb43600-2b2c-11ea-87db-3b04ec31ba9f.PNG">
+<img width="826" alt="board" src="https://user-images.githubusercontent.com/45925158/71576621-8a7d9080-2b34-11ea-8942-7af3e37ea348.PNG">
  <img width="781" alt="detail1" src="https://user-images.githubusercontent.com/45925158/71574779-a2054b00-2b2d-11ea-9f77-719bee5e6f73.PNG">
  
 ### 글쓰기
