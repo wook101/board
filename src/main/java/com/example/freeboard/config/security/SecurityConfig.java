@@ -17,6 +17,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
+		/*
 		http
 			.csrf().disable()	//CSRF 공격을 막기 위해 설정하는 부분 disable처리 안하면 에러발생
 			.authorizeRequests()												//권한을 줄 경우 사용
@@ -31,7 +32,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 				//.loginProcessingUrl("/perform_login")
 				//.defaultSuccessUrl ("/board",true);		
 
-
+	*/
 
 	}
 	
