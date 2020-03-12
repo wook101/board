@@ -16,7 +16,11 @@
 		<security.version>4.2.7.RELEASE</security.version>
 		
 		<!-- jackson -->
+<<<<<<< HEAD
 		<jackson2.version>2.9.10</jackson2.version>
+=======
+		<jackson2.version>2.10.3</jackson2.version>
+>>>>>>> e3ddac062b99738ee3ac6c4fddfda91e43c36cca
 	</properties>
 
 	<dependencies>
