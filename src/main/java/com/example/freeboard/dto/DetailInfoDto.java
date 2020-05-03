@@ -2,7 +2,7 @@ package com.example.freeboard.dto;
 
 import java.util.Date;
 
-public class DetailInfoVo {
+public class DetailInfoDto {
 	private int id;
 	private int user_id;
 	private String nickName;

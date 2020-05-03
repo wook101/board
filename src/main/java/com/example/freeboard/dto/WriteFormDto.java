@@ -1,6 +1,6 @@
 package com.example.freeboard.dto;
 
-public class WriteFormVo {
+public class WriteFormDto {
 	private String title;
 	private String content;
 	public String getTitle() {

@@ -1,6 +1,6 @@
 package com.example.freeboard.config.security;
 
-import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -17,9 +17,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		/*
+		
 		http
-			.csrf().disable()	//CSRF 공격을 막기 위해 설정하는 부분 disable처리 안하면 에러발생
+			.csrf().disable();	//CSRF 공격을 막기 위해 설정하는 부분 disable처리 안하면 (ajax post요청시 403)에러발생
+	/*
 			.authorizeRequests()												//권한을 줄 경우 사용
 				.antMatchers("/favicon.ico").permitAll()
 				.and()

@@ -4,11 +4,10 @@ import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -16,13 +15,15 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.example.freeboard.service.BoardService;
+
+import com.example.freeboard.service.LoginService;
 
 @Controller
 public class LoginController {
-		private Logger logger = LoggerFactory.getLogger(this.getClass());
+
 		@Autowired
-		BoardService boardService;
+		LoginService loginService;
+		
 		@Autowired
 		BCryptPasswordEncoder passwordEncoder;
 		
@@ -31,10 +32,11 @@ public class LoginController {
 		public String loginPage() {
 			return "/login";
 		}
+		
 		//로그인정보 세션에 저장
 		@PostMapping("/perform_login")
 		public String postLoginform(@RequestParam (name="userID") String userID, HttpSession session) {
-			int user_id = boardService.getUserTableId(userID);
+			int user_id = loginService.getUserTableId(userID);
 			session.setAttribute("user_id", user_id);
 			return "redirect:/board";
 		}
@@ -47,7 +49,7 @@ public class LoginController {
 		public String postAjaxLoginCheck(@RequestBody Map<String, String> param) {
 			String userID = (String) param.get("userID");
 			String rawPassword = (String) param.get("password");
-			String encodedPassword = boardService.getEncPassword(userID);
+			String encodedPassword = loginService.getEncPassword(userID);
 			Boolean passwordMatch = passwordEncoder.matches(rawPassword, encodedPassword);
 			if(passwordMatch) {
 				return "1";			//로그인 성공

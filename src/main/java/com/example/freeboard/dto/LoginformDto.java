@@ -1,6 +1,6 @@
 package com.example.freeboard.dto;
 
-public class LoginformVo {
+public class LoginformDto {
 
 	private String userID;
 	private String password;

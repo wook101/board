@@ -1,6 +1,6 @@
 package com.example.freeboard.dto;
 
-public class FileInfoVo {
+public class FileInfoDto {
 	private int id;
 	private String originalFileName;
 	private String contentType;
