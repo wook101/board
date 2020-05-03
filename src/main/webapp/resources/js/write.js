@@ -55,13 +55,13 @@ function thumbnailAdd(){
 			$(this).val('');
 			return;
 		}
-		if(location.hostname=="localhost"){
-			var url = window.URL.createObjectURL(image);
-			$('#thumbnailImg').attr('src',url).css('display','');
-		}else{
-			//하드 용량 확인 [배포된 상태일때]
-			fileSizeTest(image);
-		}
+		
+		
+		var url = window.URL.createObjectURL(image);
+		$('#thumbnailImg').attr('src',url).css('display','');
+		//하드 용량 확인 [배포된 상태일때]
+		//fileSizeTest(image);
+		
 		
 		
 	});

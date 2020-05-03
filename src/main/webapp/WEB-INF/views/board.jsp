@@ -46,15 +46,19 @@
 			</div>
 		<c:if test="${!empty boardList}">
 			<ul class="pagination pagination-sm justify-content-center ">
-				<c:if test="${prePageStart > 0 }">
-					<li class="page-item"><a class="page-link" href="${type}?start=${prePageStart }&searchKeyword=${keyword}">&laquo;</a></li>
+				
+				<c:if test="${preArrowPage >= 1 }">
+					<li class="page-item"><a class="page-link" href="${type}?page=${preArrowPage }&searchKeyword=${keyword}">&laquo;</a></li>
 				</c:if>
-				<c:forEach items="${pageList}" var="pageIndex" varStatus="status">
-					<li class="page-item"><a class="page-link" href="${type}?start=${(pageIndex-1)*listCount }&searchKeyword=${keyword}">${pageIndex }</a></li>
+				
+				<c:forEach items="${pageList}" var="page" varStatus="status">
+					<li class="page-item"><a class="page-link" href="${type}?page=${page}&searchKeyword=${keyword}">${page}</a></li>
 				</c:forEach>
-				<c:if test="${nextPageArrow}">				
-					<li class="page-item"><a class="page-link" href="${type}?start=${nextPageStart }&searchKeyword=${keyword}">&raquo;</a></li>
+				 
+				<c:if test="${nextArrowPage <= totalPage}">				
+					<li class="page-item"><a class="page-link" href="${type}?page=${nextArrowPage }&searchKeyword=${keyword}">&raquo;</a></li>
 				</c:if>
+				
 			</ul>
 		</c:if>
 			

@@ -12,7 +12,7 @@ function loginStateCheck(){
 	$('#writeBtn').click(function(){
 		$.ajax({
 			url:'/FreeBoard/loginStateCheck',
-			method:'post',
+			method:'POST',
 			dataType:'text',
 			success: function(data){
 				var check = (data ==='true');
@@ -30,10 +30,10 @@ function loginStateCheck(){
 function paginationCss(){
 	var path = decodeURI(location.pathname.replace("/FreeBoard/","")+location.search);
 	if(path=="board"){
-		path="board?start=0&searchKeyword=null";
+		path="board?page=1&searchKeyword=null";
 	}else if(path.substr(0,6)=="search"){
-		if(path.substr(7,5)!="start")
-			path="search?start=0&"+decodeURI(location.search).replace("?","");
+		if(path.substr(7,4)!="page")
+			path="search?page=1&"+decodeURI(location.search).replace("?","");
 	}
 	$('a[href="'+path+'"]').addClass('active');
 }
