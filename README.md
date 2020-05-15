@@ -1,5 +1,4 @@
-## spring mvc 게시판
-spring mvc구조와 REST API의 규칙에 맞게 게시판을 프로젝트를 만들었습니다. HTTP메소드를 통해 CRUD기법을 직접 구현해보고 클라이언트의 요청이 오면 url라우팅처리로 그에 알맞은 응답이 보내질 수 있도록 구현했습니다. 
+spring mvc구조의 게시판. HTTP메소드를 통해 CRUD기법을 직접 구현해보고 클라이언트의 요청이 오면 url라우팅처리로 그에 알맞은 응답이 보내질 수 있도록 구현.
 
 ### 사용기술 
 * java, jsp, javascript, css
@@ -46,7 +45,6 @@ spring mvc구조와 REST API의 규칙에 맞게 게시판을 프로젝트를 �
 <img width="788" alt="join" src="https://user-images.githubusercontent.com/45925158/71574869-fc061080-2b2d-11ea-8978-6e184c62b630.PNG">
 
 
-### 기타 (프론트 앤드)
-* 모바일에서 봤을때도 화면이 틀어지지 않도록 부트스트랩을 적용하여 반응형웹으로 시도했습니다.
-* 상단의 navigation Bar가 모든 페이지에서 보여지게 하기위해 jsp상속 라이브러리를 사용해 구현했습니다.
+### 기타 
+* 상단의 navigation Bar가 모든 페이지에서 보여지게 하기위해 jsp상속 라이브러리를 사용
 
