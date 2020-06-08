@@ -34,7 +34,7 @@ function updateBtn(delHashCode){
 		//서버내에 이미지파일 삭제할 경우
 		if(delHashCode!= undefined && $('#deleteImg').val()=="null"){
 			$.ajax({
-				url:'/FreeBoard/deleteImg',
+				url:'/deleteImg',
 				method:'delete',
 				contentType:'application/json',
 				data:JSON.stringify({delHashCode:delHashCode}),
@@ -52,7 +52,7 @@ function updateBtn(delHashCode){
 //로그인 상태 확인
 function loginStateCheck(){
 	$.ajax({
-		url:'/FreeBoard/loginStateCheck',
+		url:'/loginStateCheck',
 		method:'post',
 		dataType:'text',
 		success: function(data){
@@ -105,7 +105,7 @@ function textAreaLen(){
 //하드 용량 확인 [배포된 상태일때]
 function fileSizeTest(image){
 	$.ajax({
-		url:"/FreeBoard/check",
+		url:"/check",
 		method:"get",
 		success:function(currentfileSize){
 			if(Number(currentfileSize) + image.size < 190200000){

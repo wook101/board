@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded",function(){
 function loginStateCheck(){
 	$('#writeBtn').click(function(){
 		$.ajax({
-			url:'/FreeBoard/loginStateCheck',
+			url:'/loginStateCheck',
 			method:'POST',
 			dataType:'text',
 			success: function(data){
@@ -28,7 +28,7 @@ function loginStateCheck(){
 }
 //pagination클릭시 배경색 보라
 function paginationCss(){
-	var path = decodeURI(location.pathname.replace("/FreeBoard/","")+location.search);
+	var path = decodeURI(location.pathname.replace("/","")+location.search);
 	if(path=="board"){
 		path="board?page=1&searchKeyword=null";
 	}else if(path.substr(0,6)=="search"){

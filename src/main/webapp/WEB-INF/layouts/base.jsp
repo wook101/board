@@ -21,8 +21,8 @@
 				<div class="col-md-1"></div>
 				<div class="col-md-10">
 					<ul class="navbar-nav">
-						<li class="nav-item"><img class="home" onclick="location.href='/FreeBoard'" src="<c:url value="/resources/img/home4.png"></c:url>"></li>
-						<li class="nav-item <layout:block name="board_active"></layout:block>"><a class="nav-link" href="/FreeBoard/board">자유 게시판</a></li>
+						<li class="nav-item"><img class="home" onclick="location.href='/'" src="<c:url value="/resources/img/home4.png"></c:url>"></li>
+						<li class="nav-item <layout:block name="board_active"></layout:block>"><a class="nav-link" href="/board">자유 게시판</a></li>
 						<li class="dropdown_area">
 							<div class="dropdown">
 								<button type="button" class="btn dropdown-toggle <layout:block name="access_active"></layout:block>" data-toggle="dropdown">
@@ -31,13 +31,13 @@
 								<div class="dropdown-menu">
 									<c:choose>
 										<c:when test="${sessionScope.user_id eq null }">
-											<a class="dropdown-item" href="/FreeBoard/login">로그인</a>
+											<a class="dropdown-item" href="/login">로그인</a>
 										</c:when>
 										<c:otherwise>
-											<a class="dropdown-item" href="/FreeBoard/logout">로그아웃</a>
+											<a class="dropdown-item" href="/logout">로그아웃</a>
 										</c:otherwise>
 									</c:choose>
-									<a class="dropdown-item" href="/FreeBoard/join">회원가입</a>
+									<a class="dropdown-item" href="/join">회원가입</a>
 								</div>
 							</div>
 						</li>

@@ -25,7 +25,7 @@ function registerBtn(){
 //로그인 상태 확인
 function loginStateCheck(){
 	$.ajax({
-		url:'/FreeBoard/loginStateCheck',
+		url:'/loginStateCheck',
 		method:'post',
 		dataType:'text',
 		success: function(data){
@@ -35,7 +35,7 @@ function loginStateCheck(){
 			}
 			else{
 				alert('로그인을 다시 해주세요');
-				location.href="/FreeBoard/login";
+				location.href="/login";
 			}
 		}
 	});
@@ -76,7 +76,7 @@ function textAreaLen(){
 //하드 용량 확인 [배포된 상태일때]
 function fileSizeTest(image){
 	$.ajax({
-		url:"/FreeBoard/check",
+		url:"/check",
 		method:"get",
 		success:function(currentfileSize){
 			if(Number(currentfileSize) + image.size < 190200000){

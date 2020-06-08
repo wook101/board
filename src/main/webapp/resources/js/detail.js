@@ -17,7 +17,7 @@ function replyDeleteEvent(){
 					var reply_id = $(this).attr('data-replyid');
 					var delete_li = $(this).parents('li');
 					$.ajax({
-						url:"/FreeBoard/deleteReply/"+reply_id,
+						url:"/deleteReply/"+reply_id,
 						method:"delete",
 						success:function(result){
 							if (result==1){
@@ -50,7 +50,7 @@ function replyRegister(){
 //수정 폼으로 이동
 function moveToUpdateForm(){
 	$('#updateBtn').click(function(){
-		location.href="/FreeBoard/updateForm/" + $(this).val();
+		location.href="/updateForm/" + $(this).val();
 	});
 }
 //게시글 삭제
@@ -61,14 +61,14 @@ function deletePost(){
 			delHashCode="null"
 		if(confirm("삭제 하시겠습니까?")){
 			$.ajax({
-				url:"/FreeBoard/delete/"+$(this).val(),
+				url:"/delete/"+$(this).val(),
 				method:"post",
 				contentType:"application/json",
 				data:JSON.stringify({delHashCode:delHashCode}),
 				success:function(jsonData){
 					if(jsonData.result){
 						alert('삭제 되었습니다.');
-						location.href="/FreeBoard/board";
+						location.href="/board";
 					}else{
 						alert('삭제 오류');
 					}
@@ -81,7 +81,7 @@ function deletePost(){
 //로그인 상태 확인
 function loginStateCheck(){
 	$.ajax({
-		url:'/FreeBoard/loginStateCheck',
+		url:'/loginStateCheck',
 		method:'post',
 		dataType:'text',
 		success: function(data){
@@ -93,7 +93,7 @@ function loginStateCheck(){
 			}
 			else{
 				alert('로그인 후 이용 가능 합니다.');
-				location.href="/FreeBoard/login";
+				location.href="/login";
 			}
 		}
 	});

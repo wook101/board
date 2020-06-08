@@ -19,7 +19,7 @@ function loginFormValidation(){
 		}
 
 		$.ajax({
-			url:'/FreeBoard/loginCheck',
+			url:'/loginCheck',
 			method:'post',
 			contentType:'application/json',
 			data:JSON.stringify({userID:userID,

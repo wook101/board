@@ -9,7 +9,7 @@
 	<layout:put block="contents">
 		<div class="jumbotron"> 
 			<h4>수정하기</h4>
-			<form action="/FreeBoard/update/${detailInfo.id }" method="post" class="writeForm" enctype="multipart/form-data">
+			<form action="/update/${detailInfo.id }" method="post" class="writeForm" enctype="multipart/form-data">
 				<div class="form-group">
 					<label for="title">제목</label>
 					<input type="text" class="form-control" id="title" name="title" value="${detailInfo.title }"> 
@@ -29,7 +29,7 @@
 						<div class="thumbnail_area">
 							<input type="hidden" id="deleteImg" name="hashCode" value="${detailInfo.file_hashCode}">
 							<img id="closeBtn" src="<c:url value="/resources/img/close5.png"></c:url>">
-							<img id="thumbnailImg" class="img-thumbnail" src="/FreeBoard/imgDownload?id=${detailInfo.id }">
+							<img id="thumbnailImg" class="img-thumbnail" src="/imgDownload?id=${detailInfo.id }">
 						</div>
 					</c:when>
 					<c:otherwise>

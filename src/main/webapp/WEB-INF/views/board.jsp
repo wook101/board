@@ -8,7 +8,7 @@
 	<layout:put block="title">자유 게시판</layout:put>
 	<layout:put block="board_active">tab_active</layout:put>
 	<layout:put block="contents">
-		<form id="searchForm" method="get" action="/FreeBoard/search">
+		<form id="searchForm" method="get" action="/search">
 			<div id="search_group" class="form-group">
 				<input type="text" name="searchKeyword" id="searchInput">
 				<button type="submit" class="btn btn-secondary btn-sm" id="searchBtn">검색</button>

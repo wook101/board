@@ -8,7 +8,7 @@
 	<layout:put block="contents">
 		<div class="jumbotron">
 			<h4>글쓰기</h4>
-			<form action="/FreeBoard/writeUpload" method="post" class="writeForm" enctype="multipart/form-data">
+			<form action="/writeUpload" method="post" class="writeForm" enctype="multipart/form-data">
 				<div class="form-group">
 					<label for="title">제목</label>
 					<input type="text" class="form-control" id="title" name="title"> 

@@ -39,7 +39,7 @@
 				<div id="replywWtrite">
 					<h5>댓글</h5>
 					<div style="border:solid 1px #c3c3c3">
-						<form id="replyForm" method="post" action="/FreeBoard/replyForm?board_id=${detailInfo.id }">
+						<form id="replyForm" method="post" action="/replyForm?board_id=${detailInfo.id }">
 							<textarea id="write_textarea" name="comment" placeholder="로그인 후 이용가능!!"></textarea>
 							<div class="replyBtn_area">
 								<button type="submit" id="replyBtn">등록</button>
