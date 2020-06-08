@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="FreeBoard:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>FreeBoard</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="FreeBoard.war">
+      <element id="artifact" artifact-name="FreeBoard:war exploded" />
+    </root>
+  </artifact>
+</component>
