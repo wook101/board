@@ -1,0 +1,26 @@
+.jumbotron{
+	height:450px;
+	background-color:#ffffff;
+}
+.jumbotron h1{
+	font-weight:500;
+}
+.loginForm{
+	margin-top:80px;
+}
+#loginBtn{
+	color:#fff;
+	background-color:#560398;
+}
+.btn-success{
+	font-size:18px;
+}
+.form_feedback{
+	margin-top:10px;
+}
+.validation_success{
+	color:#4CAF50;
+}
+.validation_fail{
+	color:red;
+}

@@ -1,0 +1,46 @@
+.jumbotron{
+	border:solid 1px #c1c1c1;
+	background-color:#fff;
+}
+.writeForm{
+	margin-top:30px;
+}
+#content{
+	height:200px;
+}
+#addFile{
+	position:absolute;
+	width:1px;
+	height:1px;
+}
+label[for="addFile"]{
+	cursor:pointer;
+}
+.thumbnail_area{
+	position:relative;
+	display:inline-block;
+	padding: 15px 0 0 0;
+}
+#closeBtn{
+	position:absolute;
+	right:0;
+	width:30px;
+	height:30px;
+	cursor:pointer;	
+}
+#thumbnailImg{
+	width:300px;
+	height:auto;
+}
+
+.register_area{
+	padding:20px 0 0 0;
+	text-align:right;
+}
+
+@media (max-width:414px){
+	#thumbnailImg{
+		width:250px;
+		height:auto;
+	}
+}
