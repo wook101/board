@@ -1,5 +1,17 @@
 spring mvc구조의 게시판. HTTP메소드를 통해 CRUD기법을 직접 구현해보고 클라이언트의 요청이 오면 url라우팅처리로 그에 알맞은 응답이 보내질 수 있도록 구현.
 
+
+### 인텔리제이에서 프로젝트 띄우기
+git clone https://github.com/wook101/board.git
+Import Project > Eclips project
+Project Struct > Project SDK > jdk1.8
+Project Struct > Dependencies > Modules SDK > jdk1.8
+Add framwork support > Maven add
+
+Tomcat Server설정 > Local > Deployment > artifect > 프로젝트(FreeBoard:war exploded) add
+Application context : "/" 루트경로로 변경
+Tomcat Server Run !!
+
 ### 사용기술 
 * java, jsp, javascript, css
 * bootstrap4, jQuery , Ajax, jstl, el 
@@ -13,7 +25,7 @@ spring mvc구조의 게시판. HTTP메소드를 통해 CRUD기법을 직접 구�
 * jdk 1.8
 * tomcat 8.5
 
-### 데이터베이스 모델링
+### 데이터베이스 모델
 <img width="539" alt="데이터베이스 모델링" src="https://user-images.githubusercontent.com/45925158/71545555-cd722380-29cf-11ea-8274-3cce132a4acf.PNG">
 
 ### 게시글
@@ -46,5 +58,5 @@ spring mvc구조의 게시판. HTTP메소드를 통해 CRUD기법을 직접 구�
 
 
 ### 기타 
-* 상단의 navigation Bar가 모든 페이지에서 보여지게 하기위해 jsp상속 라이브러리를 사용
+
 
