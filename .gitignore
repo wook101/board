@@ -4,5 +4,4 @@ target/
 
 # Eclipse
 .settings/
-.classpath
-*.project 
+
