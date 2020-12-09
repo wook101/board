@@ -2,15 +2,15 @@ spring mvc구조의 게시판. HTTP메소드를 통해 CRUD기법을 직접 구�
 
 
 ### 인텔리제이에서 프로젝트 띄우기
-git clone https://github.com/wook101/board.git
-Import Project > Eclips project
-Project Struct > Project SDK > jdk1.8
-Project Struct > Dependencies > Modules SDK > jdk1.8
-Add framwork support > Maven add
+* git clone https://github.com/wook101/board.git
+* Import Project > Eclips project
+* Project Struct > Project SDK > jdk1.8
+* Project Struct > Dependencies > Modules SDK > jdk1.8
+* Add framwork support > Maven add
 
-Tomcat Server설정 > Local > Deployment > artifect > 프로젝트(FreeBoard:war exploded) add
-Application context : "/" 루트경로로 변경
-Tomcat Server Run !!
+* Tomcat Server설정 > Local > Deployment > artifect > 프로젝트(FreeBoard:war exploded) add
+* Application context : "/" 루트경로로 변경
+* Tomcat Server Run !!
 
 ### 사용기술 
 * java, jsp, javascript, css
