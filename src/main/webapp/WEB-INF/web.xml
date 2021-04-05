@@ -4,8 +4,6 @@
 	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 	version="3.1">
 	<display-name>freeBoard Created Web Application</display-name>
-	
-	
 
 	<context-param>
 		<param-name>contextClass</param-name>

@@ -2,10 +2,13 @@
 * VCS > Get from Version Control > https://github.com/wook101/board.git
 * Import Project > Eclips project
 * Project Struct > Project SDK > jdk1.8
-* Project Struct > Dependencies > Modules SDK > jdk1.8
+* Project Struct > Modules > Dependencies > Modules SDK > jdk1.8
 * Add framwork support > Maven add
+* Maven package (build)
 
-* Tomcat Server설정 > Local > Deployment > artifect > 프로젝트(FreeBoard:war exploded) add
+* Tomcat Server설정
+* Application server > tomcat설치 경로 설정
+* Add Configurations > Local > Deployment > artifect > 프로젝트(FreeBoard:war exploded) add
 * Application context : "/" 루트경로로 변경
 * Tomcat Server Run !!
 

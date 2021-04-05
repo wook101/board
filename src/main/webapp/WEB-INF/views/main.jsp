@@ -6,6 +6,6 @@
 	<layout:put block="css"><link rel="stylesheet" href="<c:url value="resources/css/main.css"></c:url>"></layout:put>
 	<layout:put block="title">메인</layout:put>
 	<layout:put block="contents">
-		<div class="main_area">SpringMVC 연습 <br>게시판</div>
+		<div class="main_area">게시판<br>프로젝트</div>
 	</layout:put>
 </layout:extends>
