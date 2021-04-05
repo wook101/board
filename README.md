@@ -1,8 +1,5 @@
-spring mvc구조의 게시판. HTTP메소드를 통해 CRUD기법을 직접 구현해보고 클라이언트의 요청이 오면 url라우팅처리로 그에 알맞은 응답이 보내질 수 있도록 구현.
-
-
 ### 인텔리제이에서 프로젝트 띄우기
-* git clone https://github.com/wook101/board.git
+* VCS > Get from Version Control > https://github.com/wook101/board.git
 * Import Project > Eclips project
 * Project Struct > Project SDK > jdk1.8
 * Project Struct > Dependencies > Modules SDK > jdk1.8
