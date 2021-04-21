@@ -12,8 +12,8 @@ import org.springframework.transaction.annotation.TransactionManagementConfigure
 
 @Configuration
 @EnableTransactionManagement
-public class DBConfig implements TransactionManagementConfigurer{
-	private String driverClassName = "com.mysql.jdbc.Driver";
+public class DBConfig implements TransactionManagementConfigurer {
+    private String driverClassName = "com.mysql.jdbc.Driver";
 
 	/*
 	//호스팅서버 
@@ -22,32 +22,32 @@ public class DBConfig implements TransactionManagementConfigurer{
 	private String password = "1234";
 	*/
 
-	//로컬서버
-	private String url = "jdbc:mysql://localhost:3306/freeboard_db?useUnicode=true&characterEncoding=utf8";
-	private String username = "connectuser2";
-	private String password = "connect123!@#";
+    //로컬서버
+    private String url = "jdbc:mysql://localhost:3306/freeboard_db?useUnicode=true&characterEncoding=utf8";
+    private String username = "connectuser2";
+    private String password = "connect123!@#";
 
-	//db연결은 위한 dataSource 
-	@Bean
-	public DataSource dataSource() {
-		BasicDataSource dataSource = new BasicDataSource();
-		dataSource.setDriverClassName(driverClassName);
-		dataSource.setUrl(url);
-		dataSource.setUsername(username);
-		dataSource.setPassword(password);
-		return dataSource;
-	}
+    //db연결은 위한 dataSource
+    @Bean
+    public DataSource dataSource() {
+        BasicDataSource dataSource = new BasicDataSource();
+        dataSource.setDriverClassName(driverClassName);
+        dataSource.setUrl(url);
+        dataSource.setUsername(username);
+        dataSource.setPassword(password);
+        return dataSource;
+    }
 
-	//플랫폼 트랜잭션 매니저
-	@Override
-	public PlatformTransactionManager annotationDrivenTransactionManager() {
-		return transactionManger();
-	}
+    //플랫폼 트랜잭션 매니저
+    @Override
+    public PlatformTransactionManager annotationDrivenTransactionManager() {
+        return transactionManger();
+    }
 
-	//이 빈이름을 사용하여 이후 사용자 정의 Transcational 어노테이션을 만들 수 있다
-	@Bean
-	public PlatformTransactionManager transactionManger() {
-		return new DataSourceTransactionManager(dataSource());
-	}
-	
+    //이 빈이름을 사용하여 이후 사용자 정의 Transcational 어노테이션을 만들 수 있다
+    @Bean
+    public PlatformTransactionManager transactionManger() {
+        return new DataSourceTransactionManager(dataSource());
+    }
+
 }

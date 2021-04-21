@@ -3,7 +3,6 @@ package com.example.freeboard.controller;
 
 import javax.servlet.http.HttpSession;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
 import org.springframework.web.bind.annotation.PostMapping;
@@ -15,17 +14,19 @@ import com.example.freeboard.service.WriteService;
 
 @Controller
 public class WriteController {
-		
-		@Autowired
-		WriteService writeService;
-		
-		//글쓰기 등록
-		@PostMapping("/writeUpload")
-		public String postWriteUpload(@RequestParam(name="file") MultipartFile file, WriteFormDto writeFormVo, HttpSession session) {																		
-			int user_id = (int) session.getAttribute("user_id");
-			writeService.writeRegister(user_id, file, writeFormVo);				
-			return "redirect:/board";
-		}
+    private final WriteService writeService;
 
-		
+    public WriteController(WriteService writeService) {
+        this.writeService = writeService;
+    }
+
+    //글쓰기 등록
+    @PostMapping("/writeUpload")
+    public String postWriteUpload(@RequestParam(name = "file") MultipartFile file, WriteFormDto writeFormVo, HttpSession session) {
+        int user_id = (int) session.getAttribute("user_id");
+        writeService.writeRegister(user_id, file, writeFormVo);
+        return "redirect:/board";
+    }
+
+
 }
