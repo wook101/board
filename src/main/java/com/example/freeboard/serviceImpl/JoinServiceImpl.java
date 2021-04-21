@@ -10,9 +10,11 @@ import com.example.freeboard.service.JoinService;
 
 @Service
 public class JoinServiceImpl implements JoinService {
-	
-	@Autowired
-	JoinDao joinDao;
+	private final JoinDao joinDao;
+
+	public JoinServiceImpl(JoinDao joinDao){
+		this.joinDao = joinDao;
+	}
 	
 	// 회원가입 정보 삽입
 	@Override

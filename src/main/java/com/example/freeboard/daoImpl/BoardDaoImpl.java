@@ -24,7 +24,6 @@ import com.example.freeboard.dto.BoardListDto;
 import static com.example.freeboard.dao.BoardDaoSqls.*;
 @Repository
 public class BoardDaoImpl implements BoardDao {
-		
 	private NamedParameterJdbcTemplate jdbc;
 	private RowMapper<BoardListDto> boardlistRowMapper = BeanPropertyRowMapper.newInstance(BoardListDto.class);
 	

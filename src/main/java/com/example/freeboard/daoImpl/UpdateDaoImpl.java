@@ -17,7 +17,6 @@ import com.example.freeboard.dto.WriteFormDto;
 
 @Repository
 public class UpdateDaoImpl implements UpdateDao {
-	
 	private NamedParameterJdbcTemplate jdbc;
 	
 	public UpdateDaoImpl(DataSource datasource) {

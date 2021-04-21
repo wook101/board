@@ -37,13 +37,14 @@ public class DBConfig implements TransactionManagementConfigurer{
 		dataSource.setPassword(password);
 		return dataSource;
 	}
-	
+
 	//플랫폼 트랜잭션 매니저
 	@Override
 	public PlatformTransactionManager annotationDrivenTransactionManager() {
 		return transactionManger();
 	}
 
+	//이 빈이름을 사용하여 이후 사용자 정의 Transcational 어노테이션을 만들 수 있다
 	@Bean
 	public PlatformTransactionManager transactionManger() {
 		return new DataSourceTransactionManager(dataSource());

@@ -17,10 +17,11 @@ import com.example.freeboard.service.BoardService;
 
 @Service
 public class BoardServiceImpl implements BoardService {
+	private final BoardDao boardDao;
 
-	@Autowired
-	BoardDao boardDao;
-
+	public BoardServiceImpl(BoardDao boardDao){
+		this.boardDao = boardDao;
+	}
 	
 	// 게시글 목록
 	@Override

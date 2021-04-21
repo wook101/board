@@ -13,12 +13,14 @@ import com.example.freeboard.service.WriteService;
 
 @Service
 public class WriteServiceImpl implements WriteService {
+	private final WriteDao writeDao;
+	private final ImageFileService imageFileService;
 
-	@Autowired
-	private WriteDao writeDao;
-	
-	@Autowired
-	private ImageFileService imageFileService;
+	public WriteServiceImpl(WriteDao writeDao, ImageFileService imageFileService) {
+		this.writeDao = writeDao;
+		this.imageFileService = imageFileService;
+	}
+
 	// 글쓰기 등록
 	@Override
 	@Transactional(readOnly = false)

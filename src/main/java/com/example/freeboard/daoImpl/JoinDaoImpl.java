@@ -19,7 +19,6 @@ import com.example.freeboard.dto.JoinformDto;
 
 @Repository
 public class JoinDaoImpl implements JoinDao {
-
 	private NamedParameterJdbcTemplate jdbc;
 	
 	public JoinDaoImpl(DataSource datasource) {

@@ -16,7 +16,6 @@ import com.example.freeboard.dao.LoginDao;
 
 @Repository
 public class LoginDaoImpl implements LoginDao {
-
 	private NamedParameterJdbcTemplate jdbc;
 	
 	public LoginDaoImpl(DataSource datasource) {

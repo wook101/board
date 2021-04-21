@@ -1,6 +1,5 @@
 package com.example.freeboard.serviceImpl;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
@@ -14,16 +13,16 @@ import com.example.freeboard.service.UpdateService;
 
 @Service
 public class UpdateServiceImpl implements UpdateService {
-	
-	@Autowired
-	WriteDao writeDao;
-	
-	@Autowired
-	UpdateDao updateDao;
-	
-	@Autowired
-	ImageFileService imageFileService;
-	
+	private final WriteDao writeDao;
+	private final UpdateDao updateDao;
+	private final ImageFileService imageFileService;
+
+	public UpdateServiceImpl(WriteDao writeDao, UpdateDao updateDao, ImageFileService imageFileService) {
+		this.writeDao = writeDao;
+		this.updateDao = updateDao;
+		this.imageFileService = imageFileService;
+	}
+
 	// 글 정보 갱신
 	@Override
 	@Transactional(readOnly = false)

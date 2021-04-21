@@ -32,7 +32,6 @@ import com.example.freeboard.dto.ReplyListInfoDto;
 
 @Repository
 public class DetailDaoImpl implements DetailDao {
-
 	private NamedParameterJdbcTemplate jdbc;
 	private RowMapper<DetailInfoDto> detailInfoRowMapper = BeanPropertyRowMapper.newInstance(DetailInfoDto.class);
 	private RowMapper<FileInfoDto> fileInfoRowMapper = BeanPropertyRowMapper.newInstance(FileInfoDto.class);

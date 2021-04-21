@@ -8,10 +8,12 @@ import com.example.freeboard.service.LoginService;
 
 @Service
 public class LoginServiceImpl implements LoginService {
-	
-	@Autowired
-	LoginDao loginDao;
-	
+	private final LoginDao loginDao;
+
+	public LoginServiceImpl(LoginDao loginDao){
+		this.loginDao = loginDao;
+	}
+
 	// 로그인 검사를 위한 암화된 패스워드
 	@Override
 	public String getEncPassword(String userID) {

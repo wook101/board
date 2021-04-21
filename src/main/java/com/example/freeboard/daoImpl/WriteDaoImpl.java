@@ -21,7 +21,6 @@ import com.example.freeboard.dto.WriteFormDto;
 
 @Repository
 public class WriteDaoImpl implements WriteDao {
-
 	private NamedParameterJdbcTemplate jdbc;
 	
 	public WriteDaoImpl(DataSource datasource) {

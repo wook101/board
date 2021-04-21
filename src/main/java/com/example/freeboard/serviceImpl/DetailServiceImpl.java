@@ -9,9 +9,6 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletResponse;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -27,17 +24,17 @@ import com.example.freeboard.service.ImageFileService;
 
 @Service
 public class DetailServiceImpl implements DetailService {
-	private Logger logger = LoggerFactory.getLogger(this.getClass());
-	
-	@Autowired
-	DetailDao detailDao;
-	
-	@Autowired
-	UpdateDao updateDao;
-	
-	@Autowired
-	ImageFileService imageFileService;
-	
+	private final DetailDao detailDao;
+	private final UpdateDao updateDao;
+	private final ImageFileService imageFileService;
+
+	public DetailServiceImpl(DetailDao detailDao, UpdateDao updateDao, ImageFileService imageFileService) {
+		this.detailDao = detailDao;
+		this.updateDao = updateDao;
+		this.imageFileService = imageFileService;
+	}
+
+
 	// 게시글 상세 정보
 	@Override
 	@Transactional(readOnly = false)
@@ -70,7 +67,7 @@ public class DetailServiceImpl implements DetailService {
 				bos.write(buffer, 0, readCount);
 			}
 		} catch (Exception e) {
-			logger.debug("파일 다운로드 error");
+
 		}
 
 	}
@@ -99,7 +96,6 @@ public class DetailServiceImpl implements DetailService {
 		return detailDao.deleteFileInfo(delHashCode);
 	}
 
-	
 
 	// 댓글 등록
 	@Override
