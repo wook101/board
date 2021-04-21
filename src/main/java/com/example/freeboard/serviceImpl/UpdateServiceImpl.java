@@ -13,25 +13,25 @@ import com.example.freeboard.service.UpdateService;
 
 @Service
 public class UpdateServiceImpl implements UpdateService {
-	private final WriteDao writeDao;
-	private final UpdateDao updateDao;
-	private final ImageFileService imageFileService;
+    private final WriteDao writeDao;
+    private final UpdateDao updateDao;
+    private final ImageFileService imageFileService;
 
-	public UpdateServiceImpl(WriteDao writeDao, UpdateDao updateDao, ImageFileService imageFileService) {
-		this.writeDao = writeDao;
-		this.updateDao = updateDao;
-		this.imageFileService = imageFileService;
-	}
+    public UpdateServiceImpl(WriteDao writeDao, UpdateDao updateDao, ImageFileService imageFileService) {
+        this.writeDao = writeDao;
+        this.updateDao = updateDao;
+        this.imageFileService = imageFileService;
+    }
 
-	// 글 정보 갱신
-	@Override
-	@Transactional(readOnly = false)
-	public void updatePost(int id, WriteFormDto writeFormVo, int user_id, MultipartFile file, Integer fileHashCode) {
-		if (!file.isEmpty()) {
-			writeDao.fileInfoInsert(user_id, file); // 파일 정보 삽입
-			fileHashCode = imageFileService.upload(file); // 파일 업로드
-		}
-		updateDao.updateDetailInfo(id, writeFormVo, fileHashCode); // 상세 정보 갱신
-	}
+    // 글 정보 갱신
+    @Override
+    @Transactional(readOnly = false)
+    public void updatePost(int id, WriteFormDto writeFormVo, int user_id, MultipartFile file, Integer fileHashCode) {
+        if (!file.isEmpty()) {
+            writeDao.fileInfoInsert(user_id, file); // 파일 정보 삽입
+            fileHashCode = imageFileService.upload(file); // 파일 업로드
+        }
+        updateDao.updateDetailInfo(id, writeFormVo, fileHashCode); // 상세 정보 갱신
+    }
 
 }

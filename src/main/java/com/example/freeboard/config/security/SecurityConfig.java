@@ -14,12 +14,9 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @EnableWebSecurity // EnableWebSecurity annotation이 있어야함
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-		
-	@Override
-	protected void configure(HttpSecurity http) throws Exception {
-		
-		http
-			.csrf().disable();	//CSRF 공격을 막기 위해 설정하는 부분 disable처리 안하면 (ajax post요청시 403)에러발생
+    @Override
+    protected void configure(HttpSecurity http) throws Exception {
+        http.csrf().disable(); //CSRF 공격을 막기 위해 설정하는 부분 disable처리 안하면 (ajax post요청시 403)에러발생
 	/*
 			.authorizeRequests()												//권한을 줄 경우 사용
 				.antMatchers("/favicon.ico").permitAll()
@@ -35,14 +32,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 	*/
 
-	}
-	
-	//BCrypt패스워드 인코더 빈 설정
-	@Bean
+    }
+
+    //BCrypt패스워드 인코더 빈 설정
+    @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
-	
-	
-	
+
+
 }

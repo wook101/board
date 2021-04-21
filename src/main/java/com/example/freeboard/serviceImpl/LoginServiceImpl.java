@@ -8,22 +8,22 @@ import com.example.freeboard.service.LoginService;
 
 @Service
 public class LoginServiceImpl implements LoginService {
-	private final LoginDao loginDao;
+    private final LoginDao loginDao;
 
-	public LoginServiceImpl(LoginDao loginDao){
-		this.loginDao = loginDao;
-	}
+    public LoginServiceImpl(LoginDao loginDao) {
+        this.loginDao = loginDao;
+    }
 
-	// 로그인 검사를 위한 암화된 패스워드
-	@Override
-	public String getEncPassword(String userID) {
-		return loginDao.getEncPassword(userID);
-	}
+    // 로그인 검사를 위한 암화된 패스워드
+    @Override
+    public String getEncPassword(String userID) {
+        return loginDao.getEncPassword(userID);
+    }
 
-	// user테이블의 id
-	@Override
-	public int getUserTableId(String userID) {
-		return loginDao.getUserTableId(userID);
-	}
+    // user테이블의 id
+    @Override
+    public int getUserTableId(String userID) {
+        return loginDao.getUserTableId(userID);
+    }
 
 }

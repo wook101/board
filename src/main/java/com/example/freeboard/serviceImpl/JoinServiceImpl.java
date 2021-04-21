@@ -10,21 +10,21 @@ import com.example.freeboard.service.JoinService;
 
 @Service
 public class JoinServiceImpl implements JoinService {
-	private final JoinDao joinDao;
+    private final JoinDao joinDao;
 
-	public JoinServiceImpl(JoinDao joinDao){
-		this.joinDao = joinDao;
-	}
-	
-	// 회원가입 정보 삽입
-	@Override
-	public int joinFormInsert(JoinformDto joinformvo) {
-		return joinDao.joinFormInsert(joinformvo);
-	}
+    public JoinServiceImpl(JoinDao joinDao) {
+        this.joinDao = joinDao;
+    }
 
-	// 회원가입 폼 검사
-	@Override
-	public int joinFormVaildation(String type, String formVal) {
-		return joinDao.joinFormVaildation(type, formVal);
-	}
+    // 회원가입 정보 삽입
+    @Override
+    public int joinFormInsert(JoinformDto joinformvo) {
+        return joinDao.joinFormInsert(joinformvo);
+    }
+
+    // 회원가입 폼 검사
+    @Override
+    public int joinFormVaildation(String type, String formVal) {
+        return joinDao.joinFormVaildation(type, formVal);
+    }
 }

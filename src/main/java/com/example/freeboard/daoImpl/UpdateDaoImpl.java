@@ -17,28 +17,27 @@ import com.example.freeboard.dto.WriteFormDto;
 
 @Repository
 public class UpdateDaoImpl implements UpdateDao {
-	private NamedParameterJdbcTemplate jdbc;
-	
-	public UpdateDaoImpl(DataSource datasource) {
-		this.jdbc = new NamedParameterJdbcTemplate(datasource);
-	}
-	
-	
-	// 파일 삭제후 해쉬코드 null로 갱신
-	@Override
-	public void updateDetailHashCode(Integer fileHashCode) {
-		Map<String, Object> param = Collections.singletonMap("fileHashCode", fileHashCode);
-		jdbc.update(UPDATE_FILE_HASHCODE, param);
-	}
+    private NamedParameterJdbcTemplate jdbc;
 
-	// 상세 정보 갱신
-	@Override
-	public void updateDetailInfo(int id, WriteFormDto writeFormVo, Integer hashCode) {
-		Map<String, Object> param = new HashMap<>();
-		param.put("id", id);
-		param.put("title", writeFormVo.getTitle());
-		param.put("content", writeFormVo.getContent());
-		param.put("hashCode", hashCode);
-		jdbc.update(UPDATE_DETAIL_INFO, param);
-	}
+    public UpdateDaoImpl(DataSource datasource) {
+        this.jdbc = new NamedParameterJdbcTemplate(datasource);
+    }
+
+    // 파일 삭제후 해쉬코드 null로 갱신
+    @Override
+    public void updateDetailHashCode(Integer fileHashCode) {
+        Map<String, Object> param = Collections.singletonMap("fileHashCode", fileHashCode);
+        jdbc.update(UPDATE_FILE_HASHCODE, param);
+    }
+
+    // 상세 정보 갱신
+    @Override
+    public void updateDetailInfo(int id, WriteFormDto writeFormVo, Integer hashCode) {
+        Map<String, Object> param = new HashMap<>();
+        param.put("id", id);
+        param.put("title", writeFormVo.getTitle());
+        param.put("content", writeFormVo.getContent());
+        param.put("hashCode", hashCode);
+        jdbc.update(UPDATE_DETAIL_INFO, param);
+    }
 }
