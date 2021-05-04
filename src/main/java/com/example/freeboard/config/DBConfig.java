@@ -3,8 +3,10 @@ package com.example.freeboard.config;
 import javax.sql.DataSource;
 
 import org.apache.commons.dbcp2.BasicDataSource;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
@@ -12,20 +14,20 @@ import org.springframework.transaction.annotation.TransactionManagementConfigure
 
 @Configuration
 @EnableTransactionManagement
+@PropertySource("classpath:datasource.properties")
 public class DBConfig implements TransactionManagementConfigurer {
-    private String driverClassName = "com.mysql.jdbc.Driver";
 
-	/*
-	//호스팅서버 
-	private String url = "jdbc:mysql://localhost/freeboard";
-	private String username = "ehddnr1021";
-	private String password = "1234";
-	*/
+    @Value("${wook.driverClassName}")
+    String driverClassName;
 
-    //로컬서버
-    private String url = "jdbc:mysql://localhost:3306/freeboard_db?useUnicode=true&characterEncoding=utf8";
-    private String username = "connectuser2";
-    private String password = "connect123!@#";
+    @Value("${wook.url}")
+    String url;
+
+    @Value("${wook.username}")
+    String username;
+
+    @Value("${wook.password}")
+    String password;
 
     //db연결은 위한 dataSource
     @Bean
