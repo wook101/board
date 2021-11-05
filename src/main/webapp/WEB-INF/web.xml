@@ -5,11 +5,15 @@
 	version="3.1">
 	<display-name>freeBoard Created Web Application</display-name>
 
-	<context-param>
-		<param-name>contextClass</param-name>
-		<param-value>org.springframework.web.context.support.AnnotationConfigWebApplicationContext</param-value>
-	</context-param>
-	
+	<!--
+	1. ContextLoaderListener 객체는 먼저 <context-param>으로 등록된 설정 파일(ex. ApplicationConfig.java)을 읽어서
+	첫번째 Spring Container(Root Container)를 구동하고 비즈니스 객체들(Service, DAO)을 생성한다.
+	이를 부모 컨테이너라고 부른다. 부모 컨테이너는 @ComponentScan으로 DAO・Service Bean을 찾고 메모리에 생성한다.
+	-->
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+
 	<!-- ApplicationContext 빈 설정-->
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
@@ -18,12 +22,26 @@
 			com.example.freeboard.config.security.SecurityConfig
 		</param-value>
 	</context-param>
-	
-	<listener>
-		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
-	</listener>
-	
-	<!-- Spring MVC -->
+	<context-param>
+		<param-name>contextClass</param-name>
+		<param-value>org.springframework.web.context.support.AnnotationConfigWebApplicationContext</param-value>
+	</context-param>
+	<!-- jsp 상속 -->
+	<context-param>
+		<param-name>jsp-inheritance-prefix</param-name>
+		<param-value>/WEB-INF/layouts/</param-value>
+	</context-param>
+	<context-param>
+		<param-name>jsp-inheritance-suffix</param-name>
+		<param-value>.jsp</param-value>
+	</context-param>
+
+
+	<!--
+	2. '/' 요청(=> 모든 요청)이 들어오면, Servlet Container가 DispatcherServlet 객체를 생성한다.
+	DispatcherServlet이 내부적으로 init()을 호출할 때,
+	<init-param>으로 등록된 Spring 설정 파일을 찾아 두번째 Spring Container를 구동한다.
+	-->
 	<servlet>
 		<servlet-name>mvcBoard</servlet-name>
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
@@ -37,11 +55,12 @@
 		</init-param>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
+
 	<servlet-mapping>
 		<servlet-name>mvcBoard</servlet-name>
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
-	
+
 	
 	<!--encoding  -->
 	<filter>
@@ -56,16 +75,7 @@
 		<filter-name>encodingFilter</filter-name>
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
-	
-	<!-- jsp 상속 -->
-	<context-param>
-		<param-name>jsp-inheritance-prefix</param-name>
-		<param-value>/WEB-INF/layouts/</param-value>
-	</context-param>
-	<context-param>
-		<param-name>jsp-inheritance-suffix</param-name>
-		<param-value>.jsp</param-value>
-	</context-param>
+
 
 
 	

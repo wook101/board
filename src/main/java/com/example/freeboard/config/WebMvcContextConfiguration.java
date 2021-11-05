@@ -16,7 +16,7 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 @EnableWebMvc
 @ComponentScan(basePackages = {"com.example.freeboard.controller"})
 public class WebMvcContextConfiguration extends WebMvcConfigurerAdapter {
-
+    //WebMvcConfigurer 인터페이스를 이용하여 정적리소스 설정하기
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/css/**").addResourceLocations("/resources/css/").setCachePeriod(31556926);
