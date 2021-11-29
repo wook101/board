@@ -24,13 +24,15 @@ function loginFormValidation(){
 			contentType:'application/json',
 			data:JSON.stringify({userID:userID,
 								 password:password}),
-			success : function(data){
-				if(data==0){
-					$('.form_feedback').text('아이디 또는 비밀번호가 일치하지 않습니다.').addClass('validation_fail');
-				}else if(data==1){
+			success : function(res){
+				if(res.success){
 					alert('로그인 성공!');
 					$('.loginForm').submit();
 				}
+				else{
+					$('.form_feedback').text('아이디 또는 비밀번호가 일치하지 않습니다.').addClass('validation_fail');
+				}
+
 			}
 		});
 
