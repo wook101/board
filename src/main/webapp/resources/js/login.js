@@ -27,7 +27,7 @@ function loginFormValidation(){
 			success : function(res){
 				if(res.success){
 					alert('로그인 성공!');
-					$('.loginForm').submit();
+					location.href='board';
 				}
 				else{
 					$('.form_feedback').text('아이디 또는 비밀번호가 일치하지 않습니다.').addClass('validation_fail');
